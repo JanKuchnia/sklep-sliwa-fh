@@ -883,17 +883,10 @@ function resetAllFilters() {
   if (minInput) minInput.value = '';
   if (maxInput) maxInput.value = '';
 
-  const stockToggle = document.getElementById('stock-only-toggle');
-  if (stockToggle) stockToggle.checked = false;
-
-  const b2bToggle = document.getElementById('b2b-discount-toggle');
-  if (b2bToggle) b2bToggle.checked = false;
-
-  const bestsellerToggle = document.getElementById('bestseller-only-toggle');
-  if (bestsellerToggle) bestsellerToggle.checked = false;
-
-  const sortSelect = document.getElementById('catalog-sort-select');
-  if (sortSelect) sortSelect.value = 'default';
+  document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = false);
+  document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = false);
+  document.querySelectorAll('#bestseller-only-toggle, .bestseller-only-toggle').forEach(el => el.checked = false);
+  document.querySelectorAll('#catalog-sort-select, .mobile-sort-select').forEach(el => el.value = 'default');
 
   // Uncheck brand & material checkboxes
   document.querySelectorAll('.brand-checkbox, .material-checkbox').forEach(cb => cb.checked = false);
@@ -919,18 +912,15 @@ function removeSingleFilter(type, value) {
     toggleMaterialFilter(value);
   } else if (type === 'inStockOnly') {
     state.filters.inStockOnly = false;
-    const el = document.getElementById('stock-only-toggle');
-    if (el) el.checked = false;
+    document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = false);
     renderCatalog();
   } else if (type === 'b2bDiscountOnly') {
     state.filters.b2bDiscountOnly = false;
-    const el = document.getElementById('b2b-discount-toggle');
-    if (el) el.checked = false;
+    document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = false);
     renderCatalog();
   } else if (type === 'bestsellerOnly') {
     state.filters.bestsellerOnly = false;
-    const el = document.getElementById('bestseller-only-toggle');
-    if (el) el.checked = false;
+    document.querySelectorAll('#bestseller-only-toggle, .bestseller-only-toggle').forEach(el => el.checked = false);
     renderCatalog();
   }
 }
@@ -999,9 +989,10 @@ function renderActiveFilterChips() {
 
   // Search
   if (state.searchQuery) {
+    const escapedQuery = state.searchQuery.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     chips.push(`
       <span class="filter-chip">
-        <span>Szukaj: <strong>"${state.searchQuery}"</strong></span>
+        <span>Szukaj: <strong>"${escapedQuery}"</strong></span>
         <button onclick="removeSingleFilter('search')">&times;</button>
       </span>
     `);
@@ -1090,6 +1081,10 @@ function updateSidebarDynamicCounts() {
   document.querySelectorAll('.material-checkbox').forEach(cb => {
     cb.checked = state.filters.materials.includes(cb.value);
   });
+  document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = state.filters.inStockOnly);
+  document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = state.filters.b2bDiscountOnly);
+  document.querySelectorAll('#bestseller-only-toggle, .bestseller-only-toggle').forEach(el => el.checked = state.filters.bestsellerOnly);
+  document.querySelectorAll('#catalog-sort-select, .mobile-sort-select').forEach(el => el.value = state.sortBy);
 
   // Update category filter count badges
   const catCounts = {

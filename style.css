@@ -1233,7 +1233,7 @@ input, select, textarea {
 }
 
 .mobile-filter-btn {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 8px;
   background-color: var(--bg-dark-slate);
@@ -1568,21 +1568,6 @@ input, select, textarea {
 .custom-checkbox-label input[type="checkbox"]:checked ~ .checkbox-text {
   color: var(--accent-orange);
   font-weight: 700;
-}
-
-.custom-checkbox-label input[type="checkbox"]:checked ~ .checkbox-custom::after {
-  content: "";
-  width: 5px;
-  height: 9px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  margin-bottom: 2px;
-}
-
-.custom-checkbox-label input[type="checkbox"]:checked ~ .checkbox-text {
-  color: var(--bg-dark-slate);
-  font-weight: 600;
 }
 
 /* Product Brand & Bestseller Badges */
