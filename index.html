@@ -86,11 +86,11 @@
     <div class="sub-nav-container">
       <ul class="nav-links">
         <li><a href="#home" class="nav-link"><i data-lucide="home" class="lucide-icon"></i> Strona Główna</a></li>
-        <li><a href="#catalog" class="nav-link"><i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów</a></li>
-        <li><a href="javascript:filterCategory('ogrodnicze')" class="nav-link"><i data-lucide="flower-2" class="lucide-icon"></i> Ogrodnicze</a></li>
-        <li><a href="javascript:filterCategory('metalowe')" class="nav-link"><i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe</a></li>
-        <li><a href="javascript:filterCategory('budowlane')" class="nav-link"><i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie</a></li>
-        <li><a href="javascript:filterCategory('reczne')" class="nav-link"><i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne</a></li>
+        <li><a href="#catalog" class="nav-link" onclick="filterCategory('all')"><i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów</a></li>
+        <li><a href="#catalog" onclick="filterCategory('ogrodnicze')" class="nav-link"><i data-lucide="flower-2" class="lucide-icon"></i> Ogrodnicze</a></li>
+        <li><a href="#catalog" onclick="filterCategory('metalowe')" class="nav-link"><i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe</a></li>
+        <li><a href="#catalog" onclick="filterCategory('budowlane')" class="nav-link"><i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie</a></li>
+        <li><a href="#catalog" onclick="filterCategory('reczne')" class="nav-link"><i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne</a></li>
         <li><a href="#b2b" class="nav-link b2b-link"><i data-lucide="file-text" class="lucide-icon"></i> Zamówienia Hurtowe B2B</a></li>
         <li><a href="#contact" class="nav-link"><i data-lucide="map-pin" class="lucide-icon"></i> Kontakt i Godziny</a></li>
       </ul>
@@ -107,14 +107,11 @@
         <!-- Hero Banner -->
         <div class="hero-banner">
           <div class="hero-content">
-            <span class="hero-tag">
-              <i data-lucide="shield-check" class="lucide-icon"></i> Tradycja i Jakość w Rzeszotarach
-            </span>
             <h1 class="hero-title">
               Hurtownia Narzędzi <span>Ogrodniczo-Budowlanych</span>
             </h1>
             <p class="hero-subtitle">
-              Szeroki wybór artykułów metalowych, łańcuchów, osprzętu budowlanego oraz narzędzi ogrodniczych. Dostępność od ręki dla firm budowlanych i klientów indywidualnych.
+              Firma Handlowa Czesław Śliwa w Rzeszotarach. Artykuły metalowe, łańcuchy, osprzęt budowlany i narzędzia z dostępnością od ręki dla wykonawców i klientów indywidualnych.
             </p>
             <div class="hero-actions">
               <a href="#catalog" class="btn-primary">
@@ -127,45 +124,37 @@
           </div>
         </div>
 
-        <!-- Value Proposition Feature Cards -->
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <i data-lucide="package-check" class="lucide-icon"></i>
-            </div>
-            <div>
-              <h3 class="feature-title">Towar od ręki</h3>
-              <p class="feature-desc">Duży magazyn stacjonarny w Rzeszotarach 451. Odbiór w 15 minut.</p>
+        <!-- Industrial Ledger Trust Ribbon -->
+        <div class="ledger-trust-ribbon">
+          <div class="trust-item">
+            <i data-lucide="package-check" class="lucide-icon trust-icon"></i>
+            <div class="trust-text">
+              <strong>Magazyn Rzeszotary 451</strong>
+              <span>Odbiór stacjonarny w 15 minut</span>
             </div>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <i data-lucide="tags" class="lucide-icon"></i>
-            </div>
-            <div>
-              <h3 class="feature-title">Ceny Hurtowe i Detal</h3>
-              <p class="feature-desc">Przełączaj cenę netto/brutto. Rabaty ilościowe dla wykonawców.</p>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <i data-lucide="calculator" class="lucide-icon trust-icon"></i>
+            <div class="trust-text">
+              <strong>Ceny Netto & Brutto</strong>
+              <span>Wyceny hurtowe i rabaty ilościowe</span>
             </div>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <i data-lucide="truck" class="lucide-icon"></i>
-            </div>
-            <div>
-              <h3 class="feature-title">Dostawa w Regionie</h3>
-              <p class="feature-desc">Własny transport Śliwa FH na terenie Świątnik, Skawiny i okolic.</p>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <i data-lucide="truck" class="lucide-icon trust-icon"></i>
+            <div class="trust-text">
+              <strong>Własny Transport FH Śliwa</strong>
+              <span>Dostawy w powiecie krakowskim</span>
             </div>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon-wrapper">
-              <i data-lucide="phone-call" class="lucide-icon"></i>
-            </div>
-            <div>
-              <h3 class="feature-title">Fachowe Doradztwo</h3>
-              <p class="feature-desc">Zadzwoń do hurtowni: 12 270 43 53. Pomóżmy dobrać właściwy sprzęt.</p>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <i data-lucide="phone-call" class="lucide-icon trust-icon"></i>
+            <div class="trust-text">
+              <strong>Doradztwo Techniczne</strong>
+              <span>Zadzwoń: 12 270 43 53</span>
             </div>
           </div>
         </div>
@@ -474,7 +463,7 @@
           <input type="text" id="order-client-name" required placeholder="Imię i nazwisko / Firma" style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.85rem;">
           <input type="tel" id="order-client-phone" required placeholder="Telefon kontaktowy" style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.85rem;">
           
-          <button type="submit" class="btn-primary" style="width:100%; padding:14px;">
+          <button type="submit" id="cart-submit-btn" class="btn-primary disabled-btn" disabled style="width:100%; padding:14px;">
             <i data-lucide="check" class="lucide-icon"></i> Zarezerwuj Odbiór w Rzeszotarach
           </button>
         </form>
@@ -503,11 +492,11 @@
       <div class="footer-col">
         <h4>Asortyment</h4>
         <ul class="footer-links">
-          <li><a href="javascript:filterCategory('ogrodnicze')">Narzędzia Ogrodnicze</a></li>
-          <li><a href="javascript:filterCategory('metalowe')">Artykuły Metalowe & Łańcuchy</a></li>
-          <li><a href="javascript:filterCategory('budowlane')">Budowlane & Malarskie</a></li>
-          <li><a href="javascript:filterCategory('reczne')">Narzędzia Ręczne</a></li>
-          <li><a href="javascript:filterCategory('bhp')">BHP & Odzież Robocza</a></li>
+          <li><a href="#catalog" onclick="filterCategory('ogrodnicze')">Narzędzia Ogrodnicze</a></li>
+          <li><a href="#catalog" onclick="filterCategory('metalowe')">Artykuły Metalowe & Łańcuchy</a></li>
+          <li><a href="#catalog" onclick="filterCategory('budowlane')">Budowlane & Malarskie</a></li>
+          <li><a href="#catalog" onclick="filterCategory('reczne')">Narzędzia Ręczne</a></li>
+          <li><a href="#catalog" onclick="filterCategory('bhp')">BHP & Odzież Robocza</a></li>
         </ul>
       </div>
 

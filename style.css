@@ -393,6 +393,7 @@ input, select, textarea {
 
 /* Sub-Navigation Bar */
 .sub-nav {
+  position: relative;
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-color);
 }
@@ -404,6 +405,27 @@ input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sub-nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sub-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 36px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95));
+    pointer-events: none;
+  }
 }
 
 .nav-links {
@@ -423,6 +445,7 @@ input, select, textarea {
   color: var(--text-muted);
   border-bottom: 2px solid transparent;
   transition: var(--transition-fast);
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -952,8 +975,11 @@ input, select, textarea {
 }
 
 .filter-group-title {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -1389,4 +1415,137 @@ input, select, textarea {
   .sub-nav-container { overflow-x: auto; }
   .hero-banner { padding: 36px 24px; }
   .footer-container { grid-template-columns: 1fr; }
+}
+
+/* Industrial Ledger Trust Ribbon */
+.ledger-trust-ribbon {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.trust-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-orange);
+  flex-shrink: 0;
+}
+
+.trust-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--bg-dark-slate);
+}
+
+.trust-text span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.trust-divider {
+  width: 1px;
+  height: 36px;
+  background-color: var(--border-color);
+}
+
+@media (max-width: 1024px) {
+  .ledger-trust-ribbon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .trust-divider { display: none; }
+}
+
+@media (max-width: 640px) {
+  .ledger-trust-ribbon {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Toast Notifications Container & Cards */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 420px;
+  pointer-events: none;
+}
+
+.toast-card {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--bg-dark-slate);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-dark);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(12px) scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.toast-card.toast-show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.toast-card.toast-success { border-left: 4px solid var(--emerald-green); }
+.toast-card.toast-warning { border-left: 4px solid var(--amber-gold); }
+.toast-card.toast-info { border-left: 4px solid var(--accent-orange); }
+
+.toast-icon { width: 22px; height: 22px; flex-shrink: 0; }
+.toast-success .toast-icon { color: var(--emerald-green); }
+.toast-warning .toast-icon { color: var(--amber-gold); }
+.toast-info .toast-icon { color: var(--accent-orange); }
+
+.toast-message { font-size: 0.88rem; font-weight: 500; flex: 1; line-height: 1.4; }
+.toast-close { color: var(--text-light); background: none; border: none; cursor: pointer; padding: 2px; }
+.toast-close:hover { color: var(--text-white); }
+
+/* Disabled Button Styles */
+.btn-primary:disabled, .btn-primary.disabled-btn {
+  background-color: var(--text-light) !important;
+  opacity: 0.6;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Motion & Tactile Active Feedback (Skill Guidelines) */
+.btn-primary:active, .btn-secondary:active, .btn-outline:active, .btn-b2b:active, .cart-trigger-btn:active, .mode-btn:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

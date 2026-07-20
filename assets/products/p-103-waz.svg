@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#f8fafc" rx="16"/>
+  <circle cx="200" cy="200" r="140" fill="#e2e8f0" opacity="0.5"/>
+  <!-- Coiled Hose -->
+  <g fill="none" stroke-linecap="round">
+    <circle cx="200" cy="200" r="120" stroke="#10b981" stroke-width="26"/>
+    <circle cx="200" cy="200" r="120" stroke="#f97316" stroke-width="4" stroke-dasharray="12 12"/>
+    
+    <circle cx="200" cy="200" r="92" stroke="#059669" stroke-width="26"/>
+    <circle cx="200" cy="200" r="92" stroke="#ea580c" stroke-width="4" stroke-dasharray="12 12"/>
+
+    <circle cx="200" cy="200" r="64" stroke="#047857" stroke-width="24"/>
+  </g>
+  <!-- Brass Connector at end -->
+  <rect x="290" y="185" width="45" height="30" rx="4" fill="#f59e0b"/>
+  <rect x="325" y="180" width="15" height="40" rx="3" fill="#d97706"/>
+  <rect x="280" y="190" width="15" height="20" fill="#0f172a"/>
+</svg>

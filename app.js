@@ -17,7 +17,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 38.00,
     stockQty: 48,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1617575521317-8643393db476?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-101-lopata.svg",
     description: "Profesjonalna łopata piaskowa z wzmacnianej stali hartowanej. Ergonimiczny trzonek wyprofilowany z uchwytem typu D dla maksymalnej wygody pracy w ogrodzie i na budowie.",
     specs: {
       "Producent": "FISKARS / Śliwa FH Supply",
@@ -40,7 +40,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 26.50,
     stockQty: 35,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1592417817098-8f3d6eb23659?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-102-grabie.svg",
     description: "Solidne grabie ogólnego przeznaczenia do wyrównywania gleby, grabienia liści oraz skoszonej trawy. Stalowe hartowane zęby odporne na wygięcia.",
     specs: {
       "Ilość zębów": "16 zębów",
@@ -62,7 +62,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 75.00,
     stockQty: 22,
     unit: "rolka",
-    image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-103-waz.svg",
     description: "Wytrzymały 5-warstwowy wąż ogrodowy z oplotem krzyżowym zapobiegającym skręcaniu (ATS). Odporny na promieniowanie UV oraz osadzanie się glonów.",
     specs: {
       "Średnica": "1/2 cala (12.5 mm)",
@@ -84,7 +84,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 22.00,
     stockQty: 60,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-104-sekator.svg",
     description: "Precyzyjny sekator do cięcia żywych gałęzi o średnicy do 22mm. Ostrze pokryte powłoką PTFE zmniejszającą tarcie.",
     specs: {
       "Długość": "215 mm",
@@ -105,7 +105,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 118.00,
     stockQty: 18,
     unit: "rolka (30m)",
-    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-201-lancuch.svg",
     description: "Łańcuch stalowy techniczny z ogniwami krótkimi, ocynkowany galwanicznie. Znajduje szerokie zastosowanie w budownictwie, rolnictwie i gospodarstwie.",
     specs: {
       "Norma": "DIN 766",
@@ -127,7 +127,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 54.00,
     stockQty: 14,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-202-kolano.svg",
     description: "Kolano dymowe stalowe grubo ścienne 2mm przeznaczone do podłączania wkładów kominkowych i pieców. Zakres regulacji kąta od 0° do 90°.",
     specs: {
       "Średnica": "150 mm",
@@ -149,7 +149,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 35.00,
     stockQty: 85,
     unit: "paczka",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-203-sruby.svg",
     description: "Śruby z łbem sześciokątnym gwintowane z nakrętką podkładką stalową. Klasa twardości 8.8 do konstrukcji drewnianych i stalowych.",
     specs: {
       "Wymiar": "M10 x 120 mm",
@@ -170,7 +170,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 19.50,
     stockQty: 50,
     unit: "zestaw",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-301-malarski.svg",
     description: "Kompletny zestaw malarski do lakierów, emulsji i gładzi. Wałek welurowy z krótkim włosiem zapewnia wyjątkowo gładkie wykończenie powierzchni.",
     specs: {
       "Szerokość wałka": "25 cm",
@@ -191,7 +191,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 4.80,
     stockQty: 120,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-302-pedzel.svg",
     description: "Pędzel płaski z gęstym włosiem naturalnym z dodatkiem włókien syntetycznych. Drewniana rączka lakierowana z miedzianą skuwką.",
     specs: {
       "Szerokość": "50 mm (2 cale)",
@@ -211,7 +211,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 48.00,
     stockQty: 28,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-303-poziomica.svg",
     description: "Wzmocniona poziomica alu z magnesem neodymowym w podstawie. Trzy wstrząsoodporne libelle umożliwiający szybki odczyt pionu, poziomu i kąta 45°.",
     specs: {
       "Długość": "100 cm",
@@ -232,7 +232,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 21.00,
     stockQty: 40,
     unit: "szt.",
-    image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-401-mlotek.svg",
     description: "Solidny młotek ślusarski 1kg z głowicą ze stali kutej indukcyjnie hartowanej. Trzonek z włókna szklanego absorbujący drgania z gumowym chwytem.",
     specs: {
       "Masa głowicy": "1000 gramów",
@@ -252,7 +252,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 155.00,
     stockQty: 15,
     unit: "zestaw",
-    image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-402-klucze.svg",
     description: "Kompletny zestaw kluczy ze stali chromowo-wanadowej (CrV) w wytrzymałym płachcie warsztatowej z możliwością powieszenia na ścianie.",
     specs: {
       "Zakres rozmiarów": "6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30, 32 mm",
@@ -272,7 +272,7 @@ const PRODUCTS_DB = [
     wholesalePriceNetto: 28.50,
     stockQty: 90,
     unit: "paczka (12 par)",
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80",
+    image: "./assets/products/p-501-rekawice.svg",
     description: "Elastyczne rękawice ochronne z dzianiny poliestrowej powlekane czarnym nitrylem. Doskonała chwytność i odporność na oleje oraz smary.",
     specs: {
       "Norma": "EN 388 (4121X)",
@@ -305,6 +305,31 @@ document.addEventListener('DOMContentLoaded', () => {
 function initLucideIcons() {
   if (window.lucide) {
     window.lucide.createIcons();
+  }
+}
+
+function handleProductImgError(imgElement, categoryKey) {
+  if (!imgElement || imgElement.getAttribute('data-fallback-applied')) return;
+  imgElement.setAttribute('data-fallback-applied', 'true');
+  
+  const iconMap = {
+    ogrodnicze: 'flower-2',
+    metalowe: 'link',
+    budowlane: 'paint-bucket',
+    reczne: 'hammer',
+    bhp: 'shield'
+  };
+  const iconName = iconMap[categoryKey] || 'wrench';
+  
+  const wrapper = imgElement.parentElement;
+  if (wrapper) {
+    const fallbackBox = document.createElement('div');
+    fallbackBox.className = 'img-fallback-box';
+    fallbackBox.style.cssText = 'display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; background:var(--bg-surface-elevated); color:var(--text-muted); padding:20px; text-align:center; border-radius:var(--radius-md);';
+    fallbackBox.innerHTML = `<i data-lucide="${iconName}" class="lucide-icon" style="width:36px; height:36px; color:var(--accent-orange); margin-bottom:6px;"></i><span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Śliwa FH Supply</span>`;
+    imgElement.style.display = 'none';
+    wrapper.appendChild(fallbackBox);
+    initLucideIcons();
   }
 }
 
@@ -520,7 +545,7 @@ function createProductCardHTML(product) {
   return `
     <div class="product-card">
       <div class="product-image-wrap" onclick="navigateToProduct('${product.id}')">
-        <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="handleProductImgError(this, '${product.category}')">
         <div class="badge-container">
           <span class="badge badge-stock">
             <i data-lucide="check" class="lucide-icon" style="width:12px; height:12px;"></i> W magazynie (${product.stockQty})
@@ -609,7 +634,7 @@ function renderProductSubpage(id) {
         <i data-lucide="chevron-right" class="lucide-icon" style="width:14px;"></i>
         <a href="#catalog">Katalog</a>
         <i data-lucide="chevron-right" class="lucide-icon" style="width:14px;"></i>
-        <a href="javascript:filterCategory('${product.category}')">${product.categoryLabel}</a>
+        <a href="#catalog" onclick="filterCategory('${product.category}')">${product.categoryLabel}</a>
         <i data-lucide="chevron-right" class="lucide-icon" style="width:14px;"></i>
         <span style="color:var(--text-main); font-weight:600;">${product.name}</span>
       </nav>
@@ -618,7 +643,7 @@ function renderProductSubpage(id) {
       <div class="single-product-container">
         <div class="single-product-grid">
           <div class="product-gallery-large">
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}" alt="${product.name}" onerror="handleProductImgError(this, '${product.category}')">
           </div>
           
           <div class="single-product-info">
@@ -727,15 +752,58 @@ function addCurrentSubpageToCart(productId) {
   openCartDrawer();
 }
 
+// --- TOAST NOTIFICATIONS SYSTEM ---
+function showToast(message, type = 'info') {
+  let container = document.getElementById('toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toast-container';
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = `toast-card toast-${type}`;
+  
+  const iconName = type === 'success' ? 'check-circle-2' : type === 'warning' ? 'alert-triangle' : 'info';
+  
+  toast.innerHTML = `
+    <i data-lucide="${iconName}" class="lucide-icon toast-icon"></i>
+    <div class="toast-message">${message}</div>
+    <button class="toast-close" onclick="this.parentElement.remove()"><i data-lucide="x" class="lucide-icon"></i></button>
+  `;
+
+  container.appendChild(toast);
+  initLucideIcons();
+
+  requestAnimationFrame(() => {
+    toast.classList.add('toast-show');
+  });
+
+  setTimeout(() => {
+    toast.classList.remove('toast-show');
+    setTimeout(() => toast.remove(), 300);
+  }, 4500);
+}
+
 // --- CART DRAWER LOGIC ---
 function addToCart(productId, qty = 1) {
   const product = PRODUCTS_DB.find(p => p.id === productId);
   if (!product) return;
 
   const existing = state.cart.find(item => item.id === productId);
+  const maxStock = product.stockQty || 999;
+
   if (existing) {
-    existing.qty += qty;
+    if (existing.qty + qty > maxStock) {
+      existing.qty = maxStock;
+      showToast(`Osiągnięto limit magazynowy dla: ${product.name} (${maxStock} ${product.unit})`, 'warning');
+    } else {
+      existing.qty += qty;
+      showToast(`Zaktualizowano ilość: ${product.name} (${existing.qty} ${product.unit})`, 'info');
+    }
   } else {
+    const initialQty = Math.min(qty, maxStock);
     state.cart.push({
       id: product.id,
       name: product.name,
@@ -744,8 +812,9 @@ function addToCart(productId, qty = 1) {
       priceBrutto: product.priceBrutto,
       image: product.image,
       unit: product.unit,
-      qty: qty
+      qty: initialQty
     });
+    showToast(`Dodano do koszyka: ${product.name}`, 'success');
   }
 
   saveCart();
@@ -753,6 +822,10 @@ function addToCart(productId, qty = 1) {
 }
 
 function removeFromCart(productId) {
+  const item = state.cart.find(i => i.id === productId);
+  if (item) {
+    showToast(`Usunięto z koszyka: ${item.name}`, 'info');
+  }
   state.cart = state.cart.filter(item => item.id !== productId);
   saveCart();
   updateCartUI();
@@ -760,8 +833,15 @@ function removeFromCart(productId) {
 
 function updateCartQty(productId, qty) {
   const item = state.cart.find(i => i.id === productId);
-  if (item) {
-    item.qty = Math.max(1, qty);
+  const product = PRODUCTS_DB.find(p => p.id === productId);
+  if (item && product) {
+    const maxStock = product.stockQty || 999;
+    if (qty > maxStock) {
+      item.qty = maxStock;
+      showToast(`Maksymalna dostępna ilość w magazynie to ${maxStock} ${product.unit}`, 'warning');
+    } else {
+      item.qty = Math.max(1, qty);
+    }
     saveCart();
     updateCartUI();
   }
@@ -776,18 +856,29 @@ function updateCartUI() {
   const itemsContainer = document.getElementById('cart-drawer-items');
   const totalNettoEl = document.getElementById('cart-total-netto');
   const totalBruttoEl = document.getElementById('cart-total-brutto');
+  const submitBtn = document.getElementById('cart-submit-btn');
 
   const totalCount = state.cart.reduce((sum, item) => sum + item.qty, 0);
   if (countBadge) countBadge.textContent = totalCount;
+
+  if (submitBtn) {
+    if (state.cart.length === 0) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('disabled-btn');
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('disabled-btn');
+    }
+  }
 
   if (!itemsContainer) return;
 
   if (state.cart.length === 0) {
     itemsContainer.innerHTML = `
       <div style="text-align:center; padding:48px 16px; color:var(--text-muted);">
-        <i data-lucide="shopping-bag" style="width:48px; height:48px; margin-bottom:12px;"></i>
-        <h4>Twój koszyk jest pusty</h4>
-        <p style="font-size:0.85rem; margin-top:4px;">Dodaj produkty z katalogu, aby złożyć zamówienie lub pobrać wycenę.</p>
+        <i data-lucide="shopping-bag" style="width:48px; height:48px; margin-bottom:12px; color:var(--text-light);"></i>
+        <h4 style="font-size:1.05rem; font-weight:700; color:var(--text-main);">Twój koszyk jest pusty</h4>
+        <p style="font-size:0.85rem; margin-top:4px; color:var(--text-muted);">Dodaj produkty z katalogu, aby złożyć rezerwację lub pobrać wycenę.</p>
       </div>
     `;
     if (totalNettoEl) totalNettoEl.textContent = '0.00 PLN';
@@ -806,7 +897,7 @@ function updateCartUI() {
 
       return `
         <div class="cart-item">
-          <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="handleProductImgError(this, 'general')">
           <div class="cart-item-info">
             <div class="cart-item-title">${item.name}</div>
             <div style="font-size:0.75rem; color:var(--text-muted);">${item.sku}</div>
@@ -818,7 +909,7 @@ function updateCartUI() {
               <input type="number" value="${item.qty}" readonly style="width:36px;">
               <button class="qty-btn" onclick="updateCartQty('${item.id}', ${item.qty + 1})">+</button>
             </div>
-            <button class="remove-item-btn" onclick="removeFromCart('${item.id}')">
+            <button class="remove-item-btn" onclick="removeFromCart('${item.id}')" title="Usuń z koszyka">
               <i data-lucide="trash-2" class="lucide-icon"></i>
             </button>
           </div>
@@ -846,14 +937,14 @@ function closeCartDrawer() {
 function submitCartOrder(e) {
   if (e) e.preventDefault();
   if (state.cart.length === 0) {
-    alert('Koszyk jest pusty!');
+    showToast('Twój koszyk jest pusty!', 'warning');
     return;
   }
 
   const name = document.getElementById('order-client-name')?.value || 'Klient';
   const phone = document.getElementById('order-client-phone')?.value || '';
 
-  alert(`Dziękujemy ${name}! Zamówienie zostało zarejestrowane. Pracownik hurtowni FH Śliwa skontaktuje się z Tobą telefonicznie (${phone}) w celu potwierdzenia odbioru w Rzeszotarach 451.`);
+  showToast(`Dziękujemy ${name}! Rezerwacja odbioru zarejestrowana. Skontaktujemy się telefonicznie (${phone}) w celu potwierdzenia.`, 'success');
   
   state.cart = [];
   saveCart();
@@ -863,8 +954,11 @@ function submitCartOrder(e) {
 
 function submitB2BQuote(e) {
   if (e) e.preventDefault();
-  const company = document.getElementById('b2b-company')?.value;
-  const nip = document.getElementById('b2b-nip')?.value;
+  const company = document.getElementById('b2b-company')?.value || 'Firma';
+  const nip = document.getElementById('b2b-nip')?.value || '';
 
-  alert(`Dziękujemy! Zapytanie ofertowe dla firmy ${company} (NIP: ${nip}) zostało przesłane do działu handlowego Śliwa FH. Odpowiedź z rabatem hurtowym prześlemy na wskazany adres e-mail.`);
+  showToast(`Zapytanie hurtowe dla firmy ${company} (NIP: ${nip}) zostało wysłane. Odpowiedź prześlemy niezwłocznie.`, 'success');
+  
+  const form = e.target;
+  if (form && form.reset) form.reset();
 }

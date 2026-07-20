@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#f8fafc" rx="16"/>
+  <circle cx="200" cy="200" r="140" fill="#e2e8f0" opacity="0.5"/>
+  <!-- Shovel Handle D-Grip -->
+  <path d="M 190,50 L 210,50 C 220,50 225,58 225,70 L 225,90 C 225,98 220,105 210,105 L 190,105 C 180,105 175,98 175,90 L 175,70 C 175,58 180,50 190,50 Z" fill="#0f172a"/>
+  <rect x="187" y="65" width="26" height="25" rx="6" fill="#f97316"/>
+  <!-- Shaft -->
+  <rect x="193" y="105" width="14" height="150" fill="#94a3b8" rx="2"/>
+  <rect x="195" y="105" width="4" height="150" fill="#cbd5e1"/>
+  <!-- Socket -->
+  <path d="M 185,245 L 215,245 L 210,275 L 190,275 Z" fill="#334155"/>
+  <!-- Blade -->
+  <path d="M 150,270 L 250,270 L 235,350 C 230,365 215,375 200,375 C 185,375 170,365 165,350 Z" fill="url(#metalGrad)"/>
+  <path d="M 200,270 L 200,365" stroke="#475569" stroke-width="2" stroke-dasharray="4,4"/>
+  <!-- Highlights -->
+  <path d="M 155,275 L 170,345 C 173,355 185,365 195,368 L 195,275 Z" fill="#ffffff" opacity="0.2"/>
+  <defs>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+</svg>

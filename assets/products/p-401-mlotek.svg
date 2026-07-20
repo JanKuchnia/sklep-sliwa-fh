@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#f8fafc" rx="16"/>
+  <circle cx="200" cy="200" r="140" fill="#e2e8f0" opacity="0.5"/>
+  <g transform="rotate(-35 200 200)">
+    <!-- Fiberglass Handle -->
+    <rect x="188" y="100" width="24" height="260" rx="6" fill="#f97316"/>
+    <!-- Anti-slip Rubber Grip Base -->
+    <rect x="186" y="240" width="28" height="120" rx="6" fill="#0f172a"/>
+    <line x1="186" y1="260" x2="214" y2="260" stroke="#334155" stroke-width="3"/>
+    <line x1="186" y1="280" x2="214" y2="280" stroke="#334155" stroke-width="3"/>
+    <line x1="186" y1="300" x2="214" y2="300" stroke="#334155" stroke-width="3"/>
+    <line x1="186" y1="320" x2="214" y2="320" stroke="#334155" stroke-width="3"/>
+    <!-- Machined Steel Hammer Head -->
+    <path d="M 110,80 L 290,80 L 290,125 L 260,135 L 140,135 L 110,125 Z" fill="#1e293b" stroke="#0f172a" stroke-width="3"/>
+    <!-- Striking Face (Left) -->
+    <rect x="100" y="75" width="15" height="55" rx="3" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+    <!-- Peen (Right wedge) -->
+    <path d="M 290,80 L 320,95 L 320,110 L 290,125 Z" fill="#94a3b8"/>
+  </g>
+</svg>

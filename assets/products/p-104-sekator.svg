@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#f8fafc" rx="16"/>
+  <circle cx="200" cy="200" r="140" fill="#e2e8f0" opacity="0.5"/>
+  <!-- Steel Blade 1 (Curved Bypass) -->
+  <path d="M 170,140 C 170,80 230,60 250,60 C 240,100 210,130 180,150 Z" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+  <!-- Steel Blade 2 (Anvil) -->
+  <path d="M 190,140 C 230,110 260,90 265,105 C 240,130 210,150 180,150 Z" fill="#cbd5e1"/>
+  <!-- Central Pivot Bolt -->
+  <circle cx="180" cy="145" r="12" fill="#0f172a"/>
+  <circle cx="180" cy="145" r="6" fill="#f97316"/>
+  <!-- Handles -->
+  <!-- Top Handle -->
+  <path d="M 180,145 L 120,320 C 115,335 100,345 85,340 C 70,335 65,320 75,305 L 170,140 Z" fill="#f97316"/>
+  <path d="M 115,310 C 110,325 98,332 88,328" fill="none" stroke="#ea580c" stroke-width="6" stroke-linecap="round"/>
+  <!-- Bottom Handle -->
+  <path d="M 180,145 L 260,330 C 270,345 285,345 295,335 C 305,325 300,310 285,298 L 190,140 Z" fill="#0f172a"/>
+  <path d="M 255,320 C 265,332 278,332 288,322" fill="none" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+  <!-- Spring between handles -->
+  <path d="M 150,210 Q 180,225 210,210" fill="none" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+</svg>
