@@ -17,17 +17,24 @@
   <!-- Top Status Ticker Bar -->
   <div class="top-ticker">
     <div class="ticker-left">
-      <div id="store-status-pill" class="status-pill">
-        <span class="status-dot"></span> Sprawdzanie godzin...
-      </div>
-      <span style="font-weight: 500;">
-        <i data-lucide="map-pin" class="lucide-icon" style="color:var(--accent-orange);"></i> Rzeszotary 451, 32-040 Świątniki Górne
-      </span>
+      <a href="https://maps.google.com/?q=Rzeszotary+451" target="_blank" rel="noopener" class="ticker-link ticker-location" title="Otwórz lokalizację w Google Maps">
+        <i data-lucide="map-pin" class="lucide-icon location-icon"></i>
+        <span class="addr-full">Rzeszotary 451, 32-040 Świątniki Górne</span>
+        <span class="addr-short">Rzeszotary 451</span>
+      </a>
     </div>
     <div class="ticker-right">
-      <span>
-        <i data-lucide="phone" class="lucide-icon" style="color:var(--emerald-green);"></i> Zadzwoń: <strong>12 270 43 53</strong> | <strong>601 913 899</strong>
+      <span class="ticker-phone-group">
+        <i data-lucide="phone" class="lucide-icon phone-icon"></i>
+        <span class="phone-label">Zadzwoń:</span>
+        <a href="tel:+48122704353" class="ticker-phone-link mono-text" title="Zadzwoń pod 12 270 43 53">12 270 43 53</a>
+        <span class="phone-sep">|</span>
+        <a href="tel:+48601913899" class="ticker-phone-link mono-text" title="Zadzwoń pod 601 913 899">601 913 899</a>
       </span>
+      <a href="tel:+48122704353" class="mobile-call-btn mono-text" title="Zadzwoń do hurtowni">
+        <i data-lucide="phone" class="lucide-icon"></i>
+        <span>12 270 43 53</span>
+      </a>
     </div>
   </div>
 
