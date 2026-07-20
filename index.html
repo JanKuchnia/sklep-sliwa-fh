@@ -246,59 +246,224 @@
     <section id="view-catalog" class="view-section">
       <div class="section-container">
         
-        <div class="section-header">
+        <div class="section-header catalog-section-header">
           <div class="section-title-group">
             <h2>Katalog Hurtowy i Detaliczny</h2>
-            <p>Przeglądaj pełną ofertę narzędzi i artykułów metalowych</p>
+            <p>Przeglądaj pełną ofertę narzędzi, łańcuchów i osprzętu</p>
+          </div>
+
+          <!-- Catalog Header Toolbar (Results count, sort select, mobile filter button) -->
+          <div class="catalog-toolbar">
+            <div id="catalog-results-count" class="catalog-results-count">
+              Pokazuję <strong>16</strong> z <strong>16</strong> produktów
+            </div>
+
+            <div class="catalog-toolbar-actions">
+              <button id="mobile-filter-trigger" class="btn-outline mobile-filter-btn" aria-label="Otwórz filtry">
+                <i data-lucide="sliders-horizontal" class="lucide-icon"></i>
+                <span>Filtruj i Sortuj</span>
+              </button>
+
+              <div class="sort-select-wrapper">
+                <label for="catalog-sort-select">
+                  <i data-lucide="arrow-up-down" class="lucide-icon"></i> Sortuj:
+                </label>
+                <select id="catalog-sort-select" class="sort-select">
+                  <option value="default">Domyślnie (Polecane)</option>
+                  <option value="price_asc">Cena: od najniższej</option>
+                  <option value="price_desc">Cena: od najwyższej</option>
+                  <option value="name_asc">Nazwa: A - Z</option>
+                  <option value="stock_desc">Dostępność: największa ilość</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Active Filter Chips Bar -->
+        <div id="active-filter-chips" class="active-chips-bar" style="display:none;"></div>
 
         <div class="catalog-layout">
           <!-- Filter Sidebar -->
           <aside class="filter-sidebar">
+            <div class="filter-sidebar-header">
+              <h3 class="filter-sidebar-title">
+                <i data-lucide="sliders-horizontal" class="lucide-icon"></i> Filtry
+              </h3>
+              <button class="btn-text-reset" onclick="resetAllFilters()" title="Resetuj filtry">
+                <i data-lucide="rotate-ccw" class="lucide-icon"></i> Resetuj
+              </button>
+            </div>
+
+            <!-- Group 1: Category Filter -->
             <div class="filter-group">
               <h4 class="filter-group-title">
                 <span>Kategoria</span>
-                <i data-lucide="filter" class="lucide-icon"></i>
+                <i data-lucide="grid" class="lucide-icon"></i>
               </h4>
               <ul class="category-filter-list">
                 <li class="category-filter-item active" data-cat="all" onclick="filterCategory('all')">
                   <span>Wszystkie produkty</span>
+                  <span class="cat-count-badge">16</span>
                 </li>
                 <li class="category-filter-item" data-cat="ogrodnicze" onclick="filterCategory('ogrodnicze')">
                   <span>Ogrodnicze</span>
+                  <span class="cat-count-badge">5</span>
                 </li>
                 <li class="category-filter-item" data-cat="metalowe" onclick="filterCategory('metalowe')">
                   <span>Artykuły Metalowe</span>
+                  <span class="cat-count-badge">3</span>
                 </li>
                 <li class="category-filter-item" data-cat="budowlane" onclick="filterCategory('budowlane')">
                   <span>Budowlane & Malarskie</span>
+                  <span class="cat-count-badge">4</span>
                 </li>
                 <li class="category-filter-item" data-cat="reczne" onclick="filterCategory('reczne')">
                   <span>Narzędzia Ręczne</span>
+                  <span class="cat-count-badge">3</span>
                 </li>
                 <li class="category-filter-item" data-cat="bhp" onclick="filterCategory('bhp')">
                   <span>BHP & Odzież Robocza</span>
+                  <span class="cat-count-badge">1</span>
                 </li>
               </ul>
             </div>
 
+            <!-- Group 2: Price Range Filter -->
             <div class="filter-group">
-              <h4 class="filter-group-title">Dostępność</h4>
-              <label style="display:flex; align-items:center; gap:8px; font-size:0.88rem; cursor:pointer; color:var(--text-muted);">
-                <input type="checkbox" id="stock-only-toggle">
-                <span>Tylko dostępne w Rzeszotarach</span>
-              </label>
+              <h4 class="filter-group-title">
+                <span>Zakres Cenowy (PLN)</span>
+                <i data-lucide="banknote" class="lucide-icon"></i>
+              </h4>
+              <div class="price-inputs-grid">
+                <div class="price-input-box">
+                  <span class="price-prefix">Od</span>
+                  <input type="number" id="filter-price-min" placeholder="0" min="0">
+                  <span class="price-suffix">zł</span>
+                </div>
+                <div class="price-input-box">
+                  <span class="price-prefix">Do</span>
+                  <input type="number" id="filter-price-max" placeholder="max" min="0">
+                  <span class="price-suffix">zł</span>
+                </div>
+              </div>
+              <div class="price-presets-row">
+                <button class="price-preset-btn" onclick="setPricePreset(null, 50)">do 50 zł</button>
+                <button class="price-preset-btn" onclick="setPricePreset(50, 150)">50-150 zł</button>
+                <button class="price-preset-btn" onclick="setPricePreset(150, null)">> 150 zł</button>
+              </div>
             </div>
 
-            <div class="filter-group" style="border:none;">
-              <h4 class="filter-group-title">Pomoc Hurtowa</h4>
-              <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.5; margin-bottom:12px;">
-                Potrzebujesz niestandardowych ilości łańcuchów lub kształtek?
-              </p>
-              <a href="#contact" class="btn-outline" style="width:100%; font-size:0.82rem;">
-                <i data-lucide="phone" class="lucide-icon"></i> Kontakt z hurtownią
-              </a>
+            <!-- Group 3: Brand / Manufacturer -->
+            <div class="filter-group">
+              <h4 class="filter-group-title">
+                <span>Producent / Marka</span>
+                <i data-lucide="award" class="lucide-icon"></i>
+              </h4>
+              <div class="checkbox-filter-list">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="FISKARS" onchange="toggleBrandFilter('FISKARS')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">FISKARS</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="Śliwa FH Supply" onchange="toggleBrandFilter('Śliwa FH Supply')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Śliwa FH Supply</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="YATO" onchange="toggleBrandFilter('YATO')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">YATO Tools</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="Velour Profi" onchange="toggleBrandFilter('Velour Profi')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Velour Profi</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="Senotherm" onchange="toggleBrandFilter('Senotherm')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Senotherm</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="Dragon Safety" onchange="toggleBrandFilter('Dragon Safety')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Dragon Safety</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="brand-checkbox" value="ATS Ogrodnictwo" onchange="toggleBrandFilter('ATS Ogrodnictwo')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">ATS Ogrodnictwo</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Group 4: Availability & Deals -->
+            <div class="filter-group">
+              <h4 class="filter-group-title">
+                <span>Dostępność i Oferty</span>
+                <i data-lucide="check-circle-2" class="lucide-icon"></i>
+              </h4>
+              <div class="checkbox-filter-list">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="stock-only-toggle">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Dostępne w Rzeszotarach</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="b2b-discount-toggle">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Z rabatem hurtowym B2B</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="bestseller-only-toggle">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Tylko Bestsellery</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Group 5: Material Filter -->
+            <div class="filter-group">
+              <h4 class="filter-group-title">
+                <span>Materiał Wykonania</span>
+                <i data-lucide="layers" class="lucide-icon"></i>
+              </h4>
+              <div class="checkbox-filter-list">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="material-checkbox" value="Stal hartowana" onchange="toggleMaterialFilter('Stal hartowana')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Stal hartowana</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="material-checkbox" value="Aluminium" onchange="toggleMaterialFilter('Aluminium')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Aluminium</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="material-checkbox" value="Drewno" onchange="toggleMaterialFilter('Drewno')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Drewno bukowe</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="material-checkbox" value="Tworzywo / Guma" onchange="toggleMaterialFilter('Tworzywo / Guma')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Tworzywo / Guma</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" class="material-checkbox" value="Nitryl" onchange="toggleMaterialFilter('Nitryl')">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Nitryl / Ochronne</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Group 6: Actions -->
+            <div class="filter-group" style="border:none; margin-bottom:0; padding-bottom:0;">
+              <button class="btn-outline" onclick="resetAllFilters()" style="width:100%; font-size:0.85rem;">
+                <i data-lucide="rotate-ccw" class="lucide-icon"></i> Wyczyść wszystkie filtry
+              </button>
             </div>
           </aside>
 
@@ -583,6 +748,195 @@
             </div>
           </div>
         </div>
+      </div>
+  </div>
+  </div>
+
+  <!-- Mobile Filter Drawer Overlay -->
+  <div id="mobile-filter-overlay" class="mobile-filter-overlay">
+    <div class="mobile-filter-drawer">
+      <div class="mobile-filter-header">
+        <h3><i data-lucide="sliders-horizontal" class="lucide-icon"></i> Filtry i Sortowanie</h3>
+        <button id="close-mobile-filter-btn" class="close-drawer-btn" aria-label="Zamknij filtry">
+          <i data-lucide="x" class="lucide-icon"></i>
+        </button>
+      </div>
+      <div class="mobile-filter-body">
+        <!-- Sort group -->
+        <div class="filter-group">
+          <h4 class="filter-group-title">
+            <span>Sortuj według</span>
+            <i data-lucide="arrow-up-down" class="lucide-icon"></i>
+          </h4>
+          <select class="sort-select" style="width:100%; padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); background:var(--bg-surface-elevated);" onchange="state.sortBy = this.value; renderCatalog();">
+            <option value="default">Domyślnie (Polecane)</option>
+            <option value="price_asc">Cena: od najniższej</option>
+            <option value="price_desc">Cena: od najwyższej</option>
+            <option value="name_asc">Nazwa: A - Z</option>
+            <option value="stock_desc">Dostępność: największa ilość</option>
+          </select>
+        </div>
+
+        <!-- Category Group -->
+        <div class="filter-group">
+          <h4 class="filter-group-title">
+            <span>Kategoria</span>
+            <i data-lucide="grid" class="lucide-icon"></i>
+          </h4>
+          <ul class="category-filter-list">
+            <li class="category-filter-item active" data-cat="all" onclick="filterCategory('all'); closeFilterDrawer();">
+              <span>Wszystkie produkty</span>
+            </li>
+            <li class="category-filter-item" data-cat="ogrodnicze" onclick="filterCategory('ogrodnicze'); closeFilterDrawer();">
+              <span>Ogrodnicze</span>
+            </li>
+            <li class="category-filter-item" data-cat="metalowe" onclick="filterCategory('metalowe'); closeFilterDrawer();">
+              <span>Artykuły Metalowe</span>
+            </li>
+            <li class="category-filter-item" data-cat="budowlane" onclick="filterCategory('budowlane'); closeFilterDrawer();">
+              <span>Budowlane & Malarskie</span>
+            </li>
+            <li class="category-filter-item" data-cat="reczne" onclick="filterCategory('reczne'); closeFilterDrawer();">
+              <span>Narzędzia Ręczne</span>
+            </li>
+            <li class="category-filter-item" data-cat="bhp" onclick="filterCategory('bhp'); closeFilterDrawer();">
+              <span>BHP & Odzież Robocza</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Price Range Group -->
+        <div class="filter-group">
+          <h4 class="filter-group-title">
+            <span>Zakres Cenowy (PLN)</span>
+            <i data-lucide="banknote" class="lucide-icon"></i>
+          </h4>
+          <div class="price-inputs-grid">
+            <div class="price-input-box">
+              <span class="price-prefix">Od</span>
+              <input type="number" oninput="state.filters.minPrice = this.value !== '' ? parseFloat(this.value) : null; renderCatalog();" placeholder="0" min="0">
+              <span class="price-suffix">zł</span>
+            </div>
+            <div class="price-input-box">
+              <span class="price-prefix">Do</span>
+              <input type="number" oninput="state.filters.maxPrice = this.value !== '' ? parseFloat(this.value) : null; renderCatalog();" placeholder="max" min="0">
+              <span class="price-suffix">zł</span>
+            </div>
+          </div>
+          <div class="price-presets-row">
+            <button class="price-preset-btn" onclick="setPricePreset(null, 50)">do 50 zł</button>
+            <button class="price-preset-btn" onclick="setPricePreset(50, 150)">50-150 zł</button>
+            <button class="price-preset-btn" onclick="setPricePreset(150, null)">> 150 zł</button>
+          </div>
+        </div>
+
+        <!-- Brands Group -->
+        <div class="filter-group">
+          <h4 class="filter-group-title">
+            <span>Producent / Marka</span>
+            <i data-lucide="award" class="lucide-icon"></i>
+          </h4>
+          <div class="checkbox-filter-list">
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="brand-checkbox" value="FISKARS" onchange="toggleBrandFilter('FISKARS')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">FISKARS</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="brand-checkbox" value="Śliwa FH Supply" onchange="toggleBrandFilter('Śliwa FH Supply')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Śliwa FH Supply</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="brand-checkbox" value="YATO" onchange="toggleBrandFilter('YATO')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">YATO Tools</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="brand-checkbox" value="Velour Profi" onchange="toggleBrandFilter('Velour Profi')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Velour Profi</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="brand-checkbox" value="Senotherm" onchange="toggleBrandFilter('Senotherm')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Senotherm</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="brand-checkbox" value="Dragon Safety" onchange="toggleBrandFilter('Dragon Safety')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Dragon Safety</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Availability Group -->
+        <div class="filter-group">
+          <h4 class="filter-group-title">
+            <span>Dostępność & Oferty</span>
+            <i data-lucide="check-circle-2" class="lucide-icon"></i>
+          </h4>
+          <div class="checkbox-filter-list">
+            <label class="custom-checkbox-label">
+              <input type="checkbox" onchange="state.filters.inStockOnly = this.checked; renderCatalog();">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Dostępne w Rzeszotarach</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" onchange="state.filters.b2bDiscountOnly = this.checked; renderCatalog();">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Z rabatem hurtowym B2B</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" onchange="state.filters.bestsellerOnly = this.checked; renderCatalog();">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Tylko Bestsellery</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Material Group -->
+        <div class="filter-group">
+          <h4 class="filter-group-title">
+            <span>Materiał Wykonania</span>
+            <i data-lucide="layers" class="lucide-icon"></i>
+          </h4>
+          <div class="checkbox-filter-list">
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="material-checkbox" value="Stal hartowana" onchange="toggleMaterialFilter('Stal hartowana')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Stal hartowana</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="material-checkbox" value="Aluminium" onchange="toggleMaterialFilter('Aluminium')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Aluminium</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="material-checkbox" value="Drewno" onchange="toggleMaterialFilter('Drewno')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Drewno bukowe</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <input type="checkbox" class="material-checkbox" value="Tworzywo / Guma" onchange="toggleMaterialFilter('Tworzywo / Guma')">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Tworzywo / Guma</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="filter-group" style="border:none;">
+          <button class="btn-outline" onclick="resetAllFilters(); closeFilterDrawer();" style="width:100%;">
+            <i data-lucide="rotate-ccw" class="lucide-icon"></i> Wyczyść wszystkie filtry
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-filter-footer">
+        <button class="btn-primary" onclick="closeFilterDrawer()" style="width:100%; padding:14px;">
+          Pokaż wyniki
+        </button>
       </div>
     </div>
   </div>

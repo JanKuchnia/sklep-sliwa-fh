@@ -11,6 +11,10 @@ const PRODUCTS_DB = [
     name: "Łopata Piaskowa ERGO Hartowana 120cm",
     category: "ogrodnicze",
     categoryLabel: "Narzędzia Ogrodnicze",
+    brand: "FISKARS",
+    material: "Stal hartowana",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 45.00,
     priceBrutto: 55.35,
     wholesaleMinQty: 10,
@@ -18,7 +22,7 @@ const PRODUCTS_DB = [
     stockQty: 48,
     unit: "szt.",
     image: "./assets/products/p-101-lopata.svg",
-    description: "Profesjonalna łopata piaskowa z wzmacnianej stali hartowanej. Ergonimiczny trzonek wyprofilowany z uchwytem typu D dla maksymalnej wygody pracy w ogrodzie i na budowie.",
+    description: "Profesjonalna łopata piaskowa z wzmacnianej stali hartowanej. Ergonomiczny trzonek wyprofilowany z uchwytem typu D dla maksymalnej wygody pracy w ogrodzie i na budowie.",
     specs: {
       "Producent": "FISKARS / Śliwa FH Supply",
       "Długość całkowita": "120 cm",
@@ -34,6 +38,10 @@ const PRODUCTS_DB = [
     name: "Grabie Ogrodowe 16-Zębowe Wzmacniane z Trzonkiem",
     category: "ogrodnicze",
     categoryLabel: "Narzędzia Ogrodnicze",
+    brand: "Śliwa FH Supply",
+    material: "Drewno",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 32.00,
     priceBrutto: 39.36,
     wholesaleMinQty: 10,
@@ -56,6 +64,10 @@ const PRODUCTS_DB = [
     name: "Wąż Ogrodowy 5-Warstwowy z Oplotem 1/2\" 50m",
     category: "ogrodnicze",
     categoryLabel: "Narzędzia Ogrodnicze",
+    brand: "ATS Ogrodnictwo",
+    material: "Tworzywo / Guma",
+    isBestseller: false,
+    isWholesaleDiscount: true,
     priceNetto: 89.00,
     priceBrutto: 109.47,
     wholesaleMinQty: 5,
@@ -78,6 +90,10 @@ const PRODUCTS_DB = [
     name: "Sekator Ogrodniczy Nożycowy Profi 215mm",
     category: "ogrodnicze",
     categoryLabel: "Narzędzia Ogrodnicze",
+    brand: "FISKARS",
+    material: "Stal hartowana",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 28.00,
     priceBrutto: 34.44,
     wholesaleMinQty: 10,
@@ -94,11 +110,40 @@ const PRODUCTS_DB = [
     }
   },
   {
+    id: "p-105",
+    sku: "SLW-OGR-05",
+    name: "Sekator Dźwigniowy Profesjonalny 230mm",
+    category: "ogrodnicze",
+    categoryLabel: "Narzędzia Ogrodnicze",
+    brand: "FISKARS",
+    material: "Stal hartowana",
+    isBestseller: true,
+    isWholesaleDiscount: true,
+    priceNetto: 60.00,
+    priceBrutto: 73.80,
+    wholesaleMinQty: 5,
+    wholesalePriceNetto: 52.00,
+    stockQty: 18,
+    unit: "szt.",
+    image: "./assets/products/p-104-sekator.svg",
+    description: "Sekator z mechanizmem wspomagania dźwigniowego zredukowany o 40% siłę cięcia grubych gałęzi. Ostrza szlifowane diamentowo.",
+    specs: {
+      "Długość": "230 mm",
+      "Max średnica cięcia": "26 mm",
+      "Technologia": "LeverGear System",
+      "Rękojeść": "Kompaktowa powłoka SoftGrip"
+    }
+  },
+  {
     id: "p-201",
     sku: "SLW-MET-01",
     name: "Łańcuch Odbierakowy Ogniwowy Ocynkowany DIN 766 6mm (30m)",
     category: "metalowe",
     categoryLabel: "Artykuły Metalowe",
+    brand: "Śliwa FH Supply",
+    material: "Stal hartowana",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 140.00,
     priceBrutto: 172.20,
     wholesaleMinQty: 3,
@@ -121,6 +166,10 @@ const PRODUCTS_DB = [
     name: "Kolano Nastawne Dymowe 4-segmentowe Fi 150mm / 2mm Black",
     category: "metalowe",
     categoryLabel: "Artykuły Metalowe",
+    brand: "Senotherm",
+    material: "Stal hartowana",
+    isBestseller: false,
+    isWholesaleDiscount: true,
     priceNetto: 65.00,
     priceBrutto: 79.95,
     wholesaleMinQty: 5,
@@ -143,6 +192,10 @@ const PRODUCTS_DB = [
     name: "Śruby Budowlane Ocynkowane M10x120mm z Nakrętką (100 szt.)",
     category: "metalowe",
     categoryLabel: "Artykuły Metalowe",
+    brand: "Śliwa FH Supply",
+    material: "Stal hartowana",
+    isBestseller: false,
+    isWholesaleDiscount: true,
     priceNetto: 42.00,
     priceBrutto: 51.66,
     wholesaleMinQty: 10,
@@ -164,6 +217,10 @@ const PRODUCTS_DB = [
     name: "Zestaw Malarski Velour 25cm z Rączką i Kuwetą",
     category: "budowlane",
     categoryLabel: "Budowlane & Malarskie",
+    brand: "Velour Profi",
+    material: "Tworzywo / Guma",
+    isBestseller: false,
+    isWholesaleDiscount: true,
     priceNetto: 24.00,
     priceBrutto: 29.52,
     wholesaleMinQty: 10,
@@ -185,6 +242,10 @@ const PRODUCTS_DB = [
     name: "Pędzel Płaski Angielski Najwyższa Jakość 50mm",
     category: "budowlane",
     categoryLabel: "Budowlane & Malarskie",
+    brand: "Velour Profi",
+    material: "Drewno",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 6.50,
     priceBrutto: 7.995,
     wholesaleMinQty: 20,
@@ -205,6 +266,10 @@ const PRODUCTS_DB = [
     name: "Poziomica Aluminium Magnet 100cm 3-libellowa",
     category: "budowlane",
     categoryLabel: "Budowlane & Malarskie",
+    brand: "YATO",
+    material: "Aluminium",
+    isBestseller: false,
+    isWholesaleDiscount: true,
     priceNetto: 58.00,
     priceBrutto: 71.34,
     wholesaleMinQty: 5,
@@ -221,11 +286,39 @@ const PRODUCTS_DB = [
     }
   },
   {
+    id: "p-304",
+    sku: "SLW-BUD-04",
+    name: "Taśma Malarska Papierowa Maskująca 48mm/50m",
+    category: "budowlane",
+    categoryLabel: "Budowlane & Malarskie",
+    brand: "Velour Profi",
+    material: "Tworzywo / Guma",
+    isBestseller: false,
+    isWholesaleDiscount: true,
+    priceNetto: 11.50,
+    priceBrutto: 14.15,
+    wholesaleMinQty: 24,
+    wholesalePriceNetto: 8.90,
+    stockQty: 140,
+    unit: "szt.",
+    image: "./assets/products/p-301-malarski.svg",
+    description: "Odporna taśma papierowa malarska ze specjalnym klejem kauczukowym. Bezpieczna dla ścian, nie pozostawia śladów kleju po odklejeniu.",
+    specs: {
+      "Szerokość": "48 mm",
+      "Długość": "50 metrów",
+      "Klej": "Kauczuk naturalny solvent"
+    }
+  },
+  {
     id: "p-401",
     sku: "SLW-REC-01",
     name: "Młotek Ślusarski Hartowany 1000g z Trzonkiem FiberGlass",
     category: "reczne",
     categoryLabel: "Narzędzia Ręczne",
+    brand: "YATO",
+    material: "Stal hartowana",
+    isBestseller: false,
+    isWholesaleDiscount: true,
     priceNetto: 26.00,
     priceBrutto: 31.98,
     wholesaleMinQty: 10,
@@ -246,6 +339,10 @@ const PRODUCTS_DB = [
     name: "Zestaw Kluczy Płasko-Oczkowych 6-32mm CrV (25 szt.)",
     category: "reczne",
     categoryLabel: "Narzędzia Ręczne",
+    brand: "YATO",
+    material: "Stal hartowana",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 185.00,
     priceBrutto: 227.55,
     wholesaleMinQty: 3,
@@ -255,9 +352,33 @@ const PRODUCTS_DB = [
     image: "./assets/products/p-402-klucze.svg",
     description: "Kompletny zestaw kluczy ze stali chromowo-wanadowej (CrV) w wytrzymałym płachcie warsztatowej z możliwością powieszenia na ścianie.",
     specs: {
-      "Zakres rozmiarów": "6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30, 32 mm",
+      "Zakres rozmiarów": "6-32 mm (25 elementów)",
       "Stal": "Chrome-Vanadium Premium",
       "Wykończenie": "Satyna matowa"
+    }
+  },
+  {
+    id: "p-403",
+    sku: "SLW-REC-03",
+    name: "Szczypce Uniwersalne Kombinerki 180mm CrV",
+    category: "reczne",
+    categoryLabel: "Narzędzia Ręczne",
+    brand: "YATO",
+    material: "Stal hartowana",
+    isBestseller: true,
+    isWholesaleDiscount: true,
+    priceNetto: 27.50,
+    priceBrutto: 33.83,
+    wholesaleMinQty: 10,
+    wholesalePriceNetto: 22.00,
+    stockQty: 55,
+    unit: "szt.",
+    image: "./assets/products/p-401-mlotek.svg",
+    description: "Kombinerki kute ze stali chromowo-wanadowej, utwardzane krawędzie tnące z wielokomponentowymi rękojeściami z izolacją ERGO.",
+    specs: {
+      "Długość": "180 mm",
+      "Stal": "CrV 60 HRC",
+      "Rękojeść": "Ergonomiczna dwukomponentowa"
     }
   },
   {
@@ -266,6 +387,10 @@ const PRODUCTS_DB = [
     name: "Rękawice Robocze Powlekane Nitrylem Dragon (12 par)",
     category: "bhp",
     categoryLabel: "BHP & Odzież Robocza",
+    brand: "Dragon Safety",
+    material: "Nitryl",
+    isBestseller: true,
+    isWholesaleDiscount: true,
     priceNetto: 36.00,
     priceBrutto: 44.28,
     wholesaleMinQty: 10,
@@ -287,9 +412,18 @@ const state = {
   priceMode: 'b2c', // 'b2c' (Brutto) or 'b2b' (Netto)
   activeCategory: 'all',
   searchQuery: '',
-  stockOnly: false,
+  filters: {
+    minPrice: null,
+    maxPrice: null,
+    brands: [],
+    materials: [],
+    inStockOnly: false,
+    b2bDiscountOnly: false,
+    bestsellerOnly: false
+  },
+  sortBy: 'default', // 'default', 'price_asc', 'price_desc', 'name_asc', 'stock_desc'
   cart: JSON.parse(localStorage.getItem('sliwa_cart') || '[]'),
-  pickupOption: 'pickup_rzeszotary' // 'pickup_rzeszotary', 'delivery_sliwa', 'courier'
+  pickupOption: 'pickup_rzeszotary'
 };
 
 // --- INITIALIZATION ---
@@ -482,7 +616,8 @@ function initEventListeners() {
         const matches = PRODUCTS_DB.filter(p => 
           p.name.toLowerCase().includes(query) || 
           p.sku.toLowerCase().includes(query) ||
-          p.categoryLabel.toLowerCase().includes(query)
+          p.categoryLabel.toLowerCase().includes(query) ||
+          (p.brand || '').toLowerCase().includes(query)
         ).slice(0, 5);
 
         if (matches.length > 0) {
@@ -518,12 +653,67 @@ function initEventListeners() {
     });
   }
 
-  // Stock Filter Toggle
+  // Price Filter Inputs
+  const minPriceInput = document.getElementById('filter-price-min');
+  const maxPriceInput = document.getElementById('filter-price-max');
+
+  if (minPriceInput) {
+    minPriceInput.addEventListener('input', (e) => {
+      state.filters.minPrice = e.target.value !== '' ? parseFloat(e.target.value) : null;
+      renderCatalog();
+    });
+  }
+  if (maxPriceInput) {
+    maxPriceInput.addEventListener('input', (e) => {
+      state.filters.maxPrice = e.target.value !== '' ? parseFloat(e.target.value) : null;
+      renderCatalog();
+    });
+  }
+
+  // Checkbox toggles in sidebar
   const stockToggle = document.getElementById('stock-only-toggle');
   if (stockToggle) {
     stockToggle.addEventListener('change', (e) => {
-      state.stockOnly = e.target.checked;
+      state.filters.inStockOnly = e.target.checked;
       renderCatalog();
+    });
+  }
+
+  const b2bToggle = document.getElementById('b2b-discount-toggle');
+  if (b2bToggle) {
+    b2bToggle.addEventListener('change', (e) => {
+      state.filters.b2bDiscountOnly = e.target.checked;
+      renderCatalog();
+    });
+  }
+
+  const bestsellerToggle = document.getElementById('bestseller-only-toggle');
+  if (bestsellerToggle) {
+    bestsellerToggle.addEventListener('change', (e) => {
+      state.filters.bestsellerOnly = e.target.checked;
+      renderCatalog();
+    });
+  }
+
+  // Sort Select Dropdown
+  const sortSelect = document.getElementById('catalog-sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      state.sortBy = e.target.value;
+      renderCatalog();
+    });
+  }
+
+  // Mobile Filter Drawer Controls
+  const openMobileFilterBtn = document.getElementById('mobile-filter-trigger');
+  const closeMobileFilterBtn = document.getElementById('close-mobile-filter-btn');
+  const mobileFilterOverlay = document.getElementById('mobile-filter-overlay');
+
+  if (openMobileFilterBtn) openMobileFilterBtn.addEventListener('click', openFilterDrawer);
+  if (closeMobileFilterBtn) closeMobileFilterBtn.addEventListener('click', closeFilterDrawer);
+  if (mobileFilterOverlay) {
+    mobileFilterOverlay.addEventListener('click', (e) => {
+      if (e.target === mobileFilterOverlay) closeFilterDrawer();
     });
   }
 }
@@ -535,6 +725,16 @@ function openMobileMenu() {
 
 function closeMobileMenu() {
   const overlay = document.getElementById('mobile-menu-overlay');
+  if (overlay) overlay.classList.remove('active');
+}
+
+function openFilterDrawer() {
+  const overlay = document.getElementById('mobile-filter-overlay');
+  if (overlay) overlay.classList.add('active');
+}
+
+function closeFilterDrawer() {
+  const overlay = document.getElementById('mobile-filter-overlay');
   if (overlay) overlay.classList.remove('active');
 }
 
@@ -562,26 +762,208 @@ function formatPrice(product) {
   }
 }
 
-// --- CATALOG RENDERING ---
+// --- MULTI-CRITERIA FILTERING & SORTING LOGIC ---
+function getFilteredProducts() {
+  return PRODUCTS_DB.filter(p => {
+    // 1. Category Filter
+    if (state.activeCategory !== 'all' && p.category !== state.activeCategory) {
+      return false;
+    }
+
+    // 2. Search Query Filter
+    if (state.searchQuery) {
+      const q = state.searchQuery.toLowerCase();
+      const matchName = p.name.toLowerCase().includes(q);
+      const matchSku = p.sku.toLowerCase().includes(q);
+      const matchCat = p.categoryLabel.toLowerCase().includes(q);
+      const matchBrand = (p.brand || '').toLowerCase().includes(q);
+      if (!matchName && !matchSku && !matchCat && !matchBrand) return false;
+    }
+
+    // 3. Price Range Filter (evaluated dynamically against Netto vs Brutto according to active priceMode)
+    const activePrice = state.priceMode === 'b2b' ? p.priceNetto : p.priceBrutto;
+    if (state.filters.minPrice !== null && activePrice < state.filters.minPrice) {
+      return false;
+    }
+    if (state.filters.maxPrice !== null && activePrice > state.filters.maxPrice) {
+      return false;
+    }
+
+    // 4. Brands Filter
+    if (state.filters.brands.length > 0 && !state.filters.brands.includes(p.brand)) {
+      return false;
+    }
+
+    // 5. Materials Filter
+    if (state.filters.materials.length > 0 && !state.filters.materials.includes(p.material)) {
+      return false;
+    }
+
+    // 6. Availability & Special Deals Toggles
+    if (state.filters.inStockOnly && p.stockQty <= 0) return false;
+    if (state.filters.b2bDiscountOnly && !p.wholesaleMinQty) return false;
+    if (state.filters.bestsellerOnly && !p.isBestseller) return false;
+
+    return true;
+  }).sort((a, b) => {
+    const priceA = state.priceMode === 'b2b' ? a.priceNetto : a.priceBrutto;
+    const priceB = state.priceMode === 'b2b' ? b.priceNetto : b.priceBrutto;
+
+    switch (state.sortBy) {
+      case 'price_asc':
+        return priceA - priceB;
+      case 'price_desc':
+        return priceB - priceA;
+      case 'name_asc':
+        return a.name.localeCompare(b.name, 'pl');
+      case 'stock_desc':
+        return b.stockQty - a.stockQty;
+      default:
+        return 0; // Natural order in catalog DB
+    }
+  });
+}
+
+// Brand Filter Toggle
+function toggleBrandFilter(brandName) {
+  const idx = state.filters.brands.indexOf(brandName);
+  if (idx > -1) {
+    state.filters.brands.splice(idx, 1);
+  } else {
+    state.filters.brands.push(brandName);
+  }
+  renderCatalog();
+}
+
+// Material Filter Toggle
+function toggleMaterialFilter(materialName) {
+  const idx = state.filters.materials.indexOf(materialName);
+  if (idx > -1) {
+    state.filters.materials.splice(idx, 1);
+  } else {
+    state.filters.materials.push(materialName);
+  }
+  renderCatalog();
+}
+
+// Price Presets
+function setPricePreset(min, max) {
+  state.filters.minPrice = min;
+  state.filters.maxPrice = max;
+
+  const minInput = document.getElementById('filter-price-min');
+  const maxInput = document.getElementById('filter-price-max');
+  if (minInput) minInput.value = min !== null ? min : '';
+  if (maxInput) maxInput.value = max !== null ? max : '';
+
+  renderCatalog();
+}
+
+// Reset All Filters
+function resetAllFilters() {
+  state.activeCategory = 'all';
+  state.searchQuery = '';
+  state.filters = {
+    minPrice: null,
+    maxPrice: null,
+    brands: [],
+    materials: [],
+    inStockOnly: false,
+    b2bDiscountOnly: false,
+    bestsellerOnly: false
+  };
+  state.sortBy = 'default';
+
+  // Reset UI inputs & checkboxes
+  const searchInput = document.getElementById('main-search-input');
+  if (searchInput) searchInput.value = '';
+
+  const minInput = document.getElementById('filter-price-min');
+  const maxInput = document.getElementById('filter-price-max');
+  if (minInput) minInput.value = '';
+  if (maxInput) maxInput.value = '';
+
+  const stockToggle = document.getElementById('stock-only-toggle');
+  if (stockToggle) stockToggle.checked = false;
+
+  const b2bToggle = document.getElementById('b2b-discount-toggle');
+  if (b2bToggle) b2bToggle.checked = false;
+
+  const bestsellerToggle = document.getElementById('bestseller-only-toggle');
+  if (bestsellerToggle) bestsellerToggle.checked = false;
+
+  const sortSelect = document.getElementById('catalog-sort-select');
+  if (sortSelect) sortSelect.value = 'default';
+
+  // Uncheck brand & material checkboxes
+  document.querySelectorAll('.brand-checkbox, .material-checkbox').forEach(cb => cb.checked = false);
+
+  updateNavActiveLinks();
+  renderCatalog();
+}
+
+// Remove individual active filter tag chip
+function removeSingleFilter(type, value) {
+  if (type === 'category') {
+    filterCategory('all');
+  } else if (type === 'search') {
+    state.searchQuery = '';
+    const searchInput = document.getElementById('main-search-input');
+    if (searchInput) searchInput.value = '';
+    renderCatalog();
+  } else if (type === 'price') {
+    setPricePreset(null, null);
+  } else if (type === 'brand') {
+    toggleBrandFilter(value);
+  } else if (type === 'material') {
+    toggleMaterialFilter(value);
+  } else if (type === 'inStockOnly') {
+    state.filters.inStockOnly = false;
+    const el = document.getElementById('stock-only-toggle');
+    if (el) el.checked = false;
+    renderCatalog();
+  } else if (type === 'b2bDiscountOnly') {
+    state.filters.b2bDiscountOnly = false;
+    const el = document.getElementById('b2b-discount-toggle');
+    if (el) el.checked = false;
+    renderCatalog();
+  } else if (type === 'bestsellerOnly') {
+    state.filters.bestsellerOnly = false;
+    const el = document.getElementById('bestseller-only-toggle');
+    if (el) el.checked = false;
+    renderCatalog();
+  }
+}
+
+// --- RENDER CATALOG & ACTIVE CHIPS ---
 function renderCatalog() {
   const container = document.getElementById('catalog-products-grid');
   if (!container) return;
 
-  let items = PRODUCTS_DB.filter(p => {
-    const matchesCategory = state.activeCategory === 'all' || p.category === state.activeCategory;
-    const matchesSearch = !state.searchQuery || 
-      p.name.toLowerCase().includes(state.searchQuery) ||
-      p.sku.toLowerCase().includes(state.searchQuery);
-    const matchesStock = !state.stockOnly || p.stockQty > 0;
-    return matchesCategory && matchesSearch && matchesStock;
-  });
+  const items = getFilteredProducts();
 
+  // 1. Update Results Counter
+  const countBadge = document.getElementById('catalog-results-count');
+  if (countBadge) {
+    countBadge.innerHTML = `Pokazuję <strong>${items.length}</strong> z <strong>${PRODUCTS_DB.length}</strong> produktów`;
+  }
+
+  // 2. Render Active Chips
+  renderActiveFilterChips();
+
+  // 3. Update Checkboxes & Sidebar Dynamic Counts
+  updateSidebarDynamicCounts();
+
+  // 4. Render Product Cards Grid
   if (items.length === 0) {
     container.innerHTML = `
-      <div style="grid-column: 1/-1; padding: 48px; text-align: center; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
-        <i data-lucide="package-x" style="width:48px; height:48px; color:var(--text-muted); margin-bottom:12px;"></i>
-        <h3>Brak produktów spełniających kryteria</h3>
-        <p style="color:var(--text-muted); margin-top:6px;">Spróbuj zmienić kategorię lub wyczyścić filtry wyszukiwania.</p>
+      <div style="grid-column: 1/-1; padding: 48px; text-align: center; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i data-lucide="package-x" style="width:52px; height:52px; color:var(--text-muted); margin-bottom:14px;"></i>
+        <h3 style="font-size:1.2rem; font-weight:700; color:var(--bg-dark-slate);">Brak produktów spełniających kryteria</h3>
+        <p style="color:var(--text-muted); margin-top:6px; font-size:0.9rem; max-width:420px; margin: 6px auto 20px auto;">Nie znaleźliśmy artykułów dopasowanych do Twojego filtra. Spróbuj poluzować kryteria lub zresetować filtry.</p>
+        <button class="btn-outline" onclick="resetAllFilters()" style="margin: 0 auto;">
+          <i data-lucide="rotate-ccw" class="lucide-icon"></i> Wyczyść wszystkie filtry
+        </button>
       </div>
     `;
   } else {
@@ -591,13 +973,141 @@ function renderCatalog() {
   initLucideIcons();
 }
 
-function renderHomeBestsellers() {
-  const container = document.getElementById('home-bestsellers-grid');
+function renderActiveFilterChips() {
+  const container = document.getElementById('active-filter-chips');
   if (!container) return;
 
-  const featured = PRODUCTS_DB.slice(0, 4);
-  container.innerHTML = featured.map(p => createProductCardHTML(p)).join('');
-  initLucideIcons();
+  const chips = [];
+
+  // Category
+  if (state.activeCategory !== 'all') {
+    const catNames = {
+      ogrodnicze: 'Ogrodnicze',
+      metalowe: 'Artykuły Metalowe',
+      budowlane: 'Budowlane & Malarskie',
+      reczne: 'Narzędzia Ręczne',
+      bhp: 'BHP & Odzież Robocza'
+    };
+    const catLabel = catNames[state.activeCategory] || state.activeCategory;
+    chips.push(`
+      <span class="filter-chip">
+        <span>Kategoria: <strong>${catLabel}</strong></span>
+        <button onclick="removeSingleFilter('category')">&times;</button>
+      </span>
+    `);
+  }
+
+  // Search
+  if (state.searchQuery) {
+    chips.push(`
+      <span class="filter-chip">
+        <span>Szukaj: <strong>"${state.searchQuery}"</strong></span>
+        <button onclick="removeSingleFilter('search')">&times;</button>
+      </span>
+    `);
+  }
+
+  // Price range
+  if (state.filters.minPrice !== null || state.filters.maxPrice !== null) {
+    const minStr = state.filters.minPrice !== null ? `${state.filters.minPrice} PLN` : '0 PLN';
+    const maxStr = state.filters.maxPrice !== null ? `${state.filters.maxPrice} PLN` : 'bez limitu';
+    chips.push(`
+      <span class="filter-chip">
+        <span>Cena: <strong>${minStr} – ${maxStr}</strong></span>
+        <button onclick="removeSingleFilter('price')">&times;</button>
+      </span>
+    `);
+  }
+
+  // Brands
+  state.filters.brands.forEach(b => {
+    chips.push(`
+      <span class="filter-chip">
+        <span>Marka: <strong>${b}</strong></span>
+        <button onclick="removeSingleFilter('brand', '${b}')">&times;</button>
+      </span>
+    `);
+  });
+
+  // Materials
+  state.filters.materials.forEach(m => {
+    chips.push(`
+      <span class="filter-chip">
+        <span>Materiał: <strong>${m}</strong></span>
+        <button onclick="removeSingleFilter('material', '${m}')">&times;</button>
+      </span>
+    `);
+  });
+
+  // Stock toggle
+  if (state.filters.inStockOnly) {
+    chips.push(`
+      <span class="filter-chip">
+        <span>W magazynie (Rzeszotary)</span>
+        <button onclick="removeSingleFilter('inStockOnly')">&times;</button>
+      </span>
+    `);
+  }
+
+  // B2B discount toggle
+  if (state.filters.b2bDiscountOnly) {
+    chips.push(`
+      <span class="filter-chip">
+        <span>Rabat hurtowy B2B</span>
+        <button onclick="removeSingleFilter('b2bDiscountOnly')">&times;</button>
+      </span>
+    `);
+  }
+
+  // Bestseller toggle
+  if (state.filters.bestsellerOnly) {
+    chips.push(`
+      <span class="filter-chip">
+        <span>Tylko Bestsellery</span>
+        <button onclick="removeSingleFilter('bestsellerOnly')">&times;</button>
+      </span>
+    `);
+  }
+
+  if (chips.length > 0) {
+    container.style.display = 'flex';
+    container.innerHTML = `
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; align-self:center;">Filtry:</div>
+      ${chips.join('')}
+      <button class="btn-clear-chips" onclick="resetAllFilters()">Wyczyść filtry</button>
+    `;
+  } else {
+    container.style.display = 'none';
+    container.innerHTML = '';
+  }
+}
+
+function updateSidebarDynamicCounts() {
+  // Checkbox inputs check state syncing
+  document.querySelectorAll('.brand-checkbox').forEach(cb => {
+    cb.checked = state.filters.brands.includes(cb.value);
+  });
+  document.querySelectorAll('.material-checkbox').forEach(cb => {
+    cb.checked = state.filters.materials.includes(cb.value);
+  });
+
+  // Update category filter count badges
+  const catCounts = {
+    all: PRODUCTS_DB.length,
+    ogrodnicze: PRODUCTS_DB.filter(p => p.category === 'ogrodnicze').length,
+    metalowe: PRODUCTS_DB.filter(p => p.category === 'metalowe').length,
+    budowlane: PRODUCTS_DB.filter(p => p.category === 'budowlane').length,
+    reczne: PRODUCTS_DB.filter(p => p.category === 'reczne').length,
+    bhp: PRODUCTS_DB.filter(p => p.category === 'bhp').length
+  };
+
+  document.querySelectorAll('.category-filter-item').forEach(item => {
+    const cat = item.dataset.cat;
+    const badge = item.querySelector('.cat-count-badge');
+    if (badge && catCounts[cat] !== undefined) {
+      badge.textContent = catCounts[cat];
+    }
+  });
 }
 
 function createProductCardHTML(product) {
@@ -615,11 +1125,19 @@ function createProductCardHTML(product) {
               <i data-lucide="percent" class="lucide-icon" style="width:12px; height:12px;"></i> Hurt od ${product.wholesaleMinQty} ${product.unit}
             </span>
           ` : ''}
+          ${product.isBestseller ? `
+            <span class="badge badge-bestseller">
+              <i data-lucide="flame" class="lucide-icon" style="width:12px; height:12px;"></i> Bestseller
+            </span>
+          ` : ''}
         </div>
         <span class="product-sku mono-text">${product.sku}</span>
       </div>
       <div class="product-details-content">
-        <span class="product-category-tag">${product.categoryLabel}</span>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <span class="product-category-tag">${product.categoryLabel}</span>
+          ${product.brand ? `<span class="product-brand-tag">${product.brand}</span>` : ''}
+        </div>
         <h3 class="product-title" onclick="navigateToProduct('${product.id}')">${product.name}</h3>
         <p class="product-spec-snippet">${product.description}</p>
         
@@ -636,6 +1154,15 @@ function createProductCardHTML(product) {
       </div>
     </div>
   `;
+}
+
+function renderHomeBestsellers() {
+  const container = document.getElementById('home-bestsellers-grid');
+  if (!container) return;
+
+  const featured = PRODUCTS_DB.filter(p => p.isBestseller).slice(0, 4);
+  container.innerHTML = featured.map(p => createProductCardHTML(p)).join('');
+  initLucideIcons();
 }
 
 function filterCategory(categoryKey) {
