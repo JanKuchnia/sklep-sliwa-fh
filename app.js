@@ -851,10 +851,8 @@ function setPricePreset(min, max) {
   state.filters.minPrice = min;
   state.filters.maxPrice = max;
 
-  const minInput = document.getElementById('filter-price-min');
-  const maxInput = document.getElementById('filter-price-max');
-  if (minInput) minInput.value = min !== null ? min : '';
-  if (maxInput) maxInput.value = max !== null ? max : '';
+  document.querySelectorAll('.min-price-input').forEach(el => el.value = min !== null ? min : '');
+  document.querySelectorAll('.max-price-input').forEach(el => el.value = max !== null ? max : '');
 
   renderCatalog();
 }
@@ -878,10 +876,8 @@ function resetAllFilters() {
   const searchInput = document.getElementById('main-search-input');
   if (searchInput) searchInput.value = '';
 
-  const minInput = document.getElementById('filter-price-min');
-  const maxInput = document.getElementById('filter-price-max');
-  if (minInput) minInput.value = '';
-  if (maxInput) maxInput.value = '';
+  document.querySelectorAll('.min-price-input').forEach(el => el.value = '');
+  document.querySelectorAll('.max-price-input').forEach(el => el.value = '');
 
   document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = false);
   document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = false);

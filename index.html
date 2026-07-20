@@ -338,12 +338,12 @@
               <div class="price-inputs-grid">
                 <div class="price-input-box">
                   <span class="price-prefix">Od</span>
-                  <input type="number" id="filter-price-min" placeholder="0" min="0">
+                  <input type="number" id="filter-price-min" class="min-price-input" placeholder="0" min="0">
                   <span class="price-suffix">zł</span>
                 </div>
                 <div class="price-input-box">
                   <span class="price-prefix">Do</span>
-                  <input type="number" id="filter-price-max" placeholder="max" min="0">
+                  <input type="number" id="filter-price-max" class="max-price-input" placeholder="max" min="0">
                   <span class="price-suffix">zł</span>
                 </div>
               </div>
@@ -814,12 +814,12 @@
           <div class="price-inputs-grid">
             <div class="price-input-box">
               <span class="price-prefix">Od</span>
-              <input type="number" oninput="state.filters.minPrice = this.value !== '' ? parseFloat(this.value) : null; renderCatalog();" placeholder="0" min="0">
+              <input type="number" class="min-price-input" oninput="state.filters.minPrice = this.value !== '' ? parseFloat(this.value) : null; renderCatalog();" placeholder="0" min="0">
               <span class="price-suffix">zł</span>
             </div>
             <div class="price-input-box">
               <span class="price-prefix">Do</span>
-              <input type="number" oninput="state.filters.maxPrice = this.value !== '' ? parseFloat(this.value) : null; renderCatalog();" placeholder="max" min="0">
+              <input type="number" class="max-price-input" oninput="state.filters.maxPrice = this.value !== '' ? parseFloat(this.value) : null; renderCatalog();" placeholder="max" min="0">
               <span class="price-suffix">zł</span>
             </div>
           </div>

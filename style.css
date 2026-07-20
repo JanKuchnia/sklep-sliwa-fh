@@ -706,7 +706,9 @@ input, select, textarea {
 
 /* Hero Banner */
 .hero-banner {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.5) 60%, rgba(15, 23, 42, 0.6) 100%),
+    url('assets/hero.webp') center / cover no-repeat;
   color: var(--text-white);
   border-radius: var(--radius-lg);
   padding: 56px 48px;
@@ -763,7 +765,7 @@ input, select, textarea {
 
 .hero-subtitle {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 32px;
   line-height: 1.6;
 }
