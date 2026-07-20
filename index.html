@@ -17,6 +17,9 @@
   <!-- Top Status Ticker Bar -->
   <div class="top-ticker">
     <div class="ticker-left">
+      <div id="store-status-pill" class="status-pill">
+        <span class="status-dot"></span> Sprawdzanie godzin...
+      </div>
       <a href="https://maps.google.com/?q=Rzeszotary+451" target="_blank" rel="noopener" class="ticker-link ticker-location" title="Otwórz lokalizację w Google Maps">
         <i data-lucide="map-pin" class="lucide-icon location-icon"></i>
         <span class="addr-full">Rzeszotary 451, 32-040 Świątniki Górne</span>
@@ -99,11 +102,12 @@
     <div class="sub-nav-container">
       <ul class="nav-links">
         <li><a href="#home" class="nav-link"><i data-lucide="home" class="lucide-icon"></i> Strona Główna</a></li>
-        <li><a href="#catalog" class="nav-link" onclick="filterCategory('all')"><i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów</a></li>
-        <li><a href="#catalog" onclick="filterCategory('ogrodnicze')" class="nav-link"><i data-lucide="flower-2" class="lucide-icon"></i> Ogrodnicze</a></li>
-        <li><a href="#catalog" onclick="filterCategory('metalowe')" class="nav-link"><i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe</a></li>
-        <li><a href="#catalog" onclick="filterCategory('budowlane')" class="nav-link"><i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie</a></li>
-        <li><a href="#catalog" onclick="filterCategory('reczne')" class="nav-link"><i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne</a></li>
+        <li><a href="#catalog" data-cat="all" class="nav-link" onclick="filterCategory('all')"><i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów</a></li>
+        <li><a href="#catalog" data-cat="ogrodnicze" onclick="filterCategory('ogrodnicze')" class="nav-link"><i data-lucide="flower-2" class="lucide-icon"></i> Ogrodnicze</a></li>
+        <li><a href="#catalog" data-cat="metalowe" onclick="filterCategory('metalowe')" class="nav-link"><i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe</a></li>
+        <li><a href="#catalog" data-cat="budowlane" onclick="filterCategory('budowlane')" class="nav-link"><i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie</a></li>
+        <li><a href="#catalog" data-cat="reczne" onclick="filterCategory('reczne')" class="nav-link"><i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne</a></li>
+        <li><a href="#catalog" data-cat="bhp" onclick="filterCategory('bhp')" class="nav-link"><i data-lucide="shield" class="lucide-icon"></i> BHP & Odzież Robocza</a></li>
         <li><a href="#b2b" class="nav-link b2b-link"><i data-lucide="file-text" class="lucide-icon"></i> Zamówienia Hurtowe B2B</a></li>
         <li><a href="#contact" class="nav-link"><i data-lucide="map-pin" class="lucide-icon"></i> Kontakt i Godziny</a></li>
       </ul>
@@ -526,32 +530,32 @@
               </a>
             </li>
             <li>
-              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('all'); closeMobileMenu();">
+              <a href="#catalog" data-cat="all" class="mobile-nav-link" onclick="filterCategory('all'); closeMobileMenu();">
                 <i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów
               </a>
             </li>
             <li>
-              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('ogrodnicze'); closeMobileMenu();">
+              <a href="#catalog" data-cat="ogrodnicze" class="mobile-nav-link" onclick="filterCategory('ogrodnicze'); closeMobileMenu();">
                 <i data-lucide="flower-2" class="lucide-icon"></i> Narzędzia Ogrodnicze
               </a>
             </li>
             <li>
-              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('metalowe'); closeMobileMenu();">
+              <a href="#catalog" data-cat="metalowe" class="mobile-nav-link" onclick="filterCategory('metalowe'); closeMobileMenu();">
                 <i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe & Łańcuchy
               </a>
             </li>
             <li>
-              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('budowlane'); closeMobileMenu();">
+              <a href="#catalog" data-cat="budowlane" class="mobile-nav-link" onclick="filterCategory('budowlane'); closeMobileMenu();">
                 <i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie
               </a>
             </li>
             <li>
-              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('reczne'); closeMobileMenu();">
+              <a href="#catalog" data-cat="reczne" class="mobile-nav-link" onclick="filterCategory('reczne'); closeMobileMenu();">
                 <i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne
               </a>
             </li>
             <li>
-              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('bhp'); closeMobileMenu();">
+              <a href="#catalog" data-cat="bhp" class="mobile-nav-link" onclick="filterCategory('bhp'); closeMobileMenu();">
                 <i data-lucide="shield" class="lucide-icon"></i> BHP & Odzież Robocza
               </a>
             </li>

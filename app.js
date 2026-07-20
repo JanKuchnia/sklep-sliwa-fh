@@ -361,18 +361,56 @@ function initRouter() {
   handleRoute(); // initial trigger
 }
 
+function updateNavActiveLinks() {
+  const hash = window.location.hash || '#home';
+
+  // Sub-nav desktop links
+  document.querySelectorAll('.sub-nav .nav-link').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    const cat = link.dataset.cat;
+
+    if (hash === '#catalog') {
+      if (cat && cat === state.activeCategory) {
+        link.classList.add('active');
+      }
+    } else {
+      if (href === hash && !cat) {
+        link.classList.add('active');
+      }
+    }
+  });
+
+  // Mobile nav drawer links
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    const cat = link.dataset.cat;
+
+    if (hash === '#catalog') {
+      if (cat && cat === state.activeCategory) {
+        link.classList.add('active');
+      }
+    } else {
+      if (href === hash && !cat) {
+        link.classList.add('active');
+      }
+    }
+  });
+
+  // Sidebar filter list
+  document.querySelectorAll('.category-filter-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.cat === state.activeCategory);
+  });
+}
+
 function handleRoute() {
   const hash = window.location.hash || '#home';
   const views = document.querySelectorAll('.view-section');
   views.forEach(v => v.classList.remove('active-view'));
 
   // Update Nav Active links
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === hash) {
-      link.classList.add('active');
-    }
-  });
+  updateNavActiveLinks();
 
   if (hash.startsWith('#product/')) {
     const productId = hash.replace('#product/', '');
@@ -603,10 +641,8 @@ function createProductCardHTML(product) {
 function filterCategory(categoryKey) {
   state.activeCategory = categoryKey;
   
-  // Update sidebar active classes
-  document.querySelectorAll('.category-filter-item').forEach(el => {
-    el.classList.toggle('active', el.dataset.cat === categoryKey);
-  });
+  // Update nav and sidebar active states
+  updateNavActiveLinks();
 
   if (window.location.hash !== '#catalog') {
     window.location.hash = '#catalog';
