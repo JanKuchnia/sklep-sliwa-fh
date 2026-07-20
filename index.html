@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Śliwa FH — Hurtownia Narzędzi Ogrodniczo-Budowlanych & Sklep | Rzeszotary</title>
+  <meta name="description" content="Śliwa FH (Firma Handlowa Czesław Śliwa) — Hurtownia i sklep z narzędziami ogrodniczymi, budowlanymi, artykułami metalowymi, łańcuchami i BHP w Rzeszotarach k. Świątnik Górnych. Ceny hurtowe i detaliczne.">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top Status Ticker Bar -->
+  <div class="top-ticker">
+    <div class="ticker-left">
+      <div id="store-status-pill" class="status-pill">
+        <span class="status-dot"></span> Sprawdzanie godzin...
+      </div>
+      <span style="font-weight: 500;">
+        <i data-lucide="map-pin" class="lucide-icon" style="color:var(--accent-orange);"></i> Rzeszotary 451, 32-040 Świątniki Górne
+      </span>
+    </div>
+    <div class="ticker-right">
+      <span>
+        <i data-lucide="phone" class="lucide-icon" style="color:var(--emerald-green);"></i> Zadzwoń: <strong>12 270 43 53</strong> | <strong>601 913 899</strong>
+      </span>
+    </div>
+  </div>
+
+  <!-- Sticky Main Header -->
+  <header class="main-header">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo">
+        <div class="logo-icon">
+          <i data-lucide="wrench" class="lucide-icon"></i>
+        </div>
+        <div class="logo-text">
+          <div class="brand-name">ŚLIWA <span>FH</span></div>
+          <div class="brand-sub">Hurtownia Narzędzi</div>
+        </div>
+        <div class="trust-badge">
+          <i data-lucide="star" class="lucide-icon" style="fill:currentColor; width:12px;"></i> 4.8 / 5.0 Google
+        </div>
+      </a>
+
+      <!-- Live Search Bar -->
+      <div class="header-search">
+        <div class="search-input-wrapper">
+          <i data-lucide="search" class="lucide-icon search-icon-inside"></i>
+          <input type="text" id="main-search-input" placeholder="Szukaj narzędzi, łańcuchów, pędzli lub kodów SKU...">
+        </div>
+        <div id="search-results-dropdown" class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Header Action Controls -->
+      <div class="header-actions">
+        <!-- B2C / B2B Price Switcher -->
+        <div class="price-mode-switch" title="Przełącz wyświetlanie cen Netto / Brutto">
+          <button id="mode-b2c-btn" class="mode-btn active b2c">
+            <i data-lucide="user" class="lucide-icon"></i> Detal (Brutto)
+          </button>
+          <button id="mode-b2b-btn" class="mode-btn b2b">
+            <i data-lucide="building-2" class="lucide-icon"></i> Hurt (Netto)
+          </button>
+        </div>
+
+        <!-- Cart Trigger Button -->
+        <button id="cart-trigger" class="cart-trigger-btn">
+          <i data-lucide="shopping-bag" class="lucide-icon"></i>
+          <span>Koszyk</span>
+          <span id="cart-count-badge" class="cart-count-badge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Sub-Navigation Bar -->
+  <nav class="sub-nav">
+    <div class="sub-nav-container">
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link"><i data-lucide="home" class="lucide-icon"></i> Strona Główna</a></li>
+        <li><a href="#catalog" class="nav-link"><i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów</a></li>
+        <li><a href="javascript:filterCategory('ogrodnicze')" class="nav-link"><i data-lucide="flower-2" class="lucide-icon"></i> Ogrodnicze</a></li>
+        <li><a href="javascript:filterCategory('metalowe')" class="nav-link"><i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe</a></li>
+        <li><a href="javascript:filterCategory('budowlane')" class="nav-link"><i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie</a></li>
+        <li><a href="javascript:filterCategory('reczne')" class="nav-link"><i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne</a></li>
+        <li><a href="#b2b" class="nav-link b2b-link"><i data-lucide="file-text" class="lucide-icon"></i> Zamówienia Hurtowe B2B</a></li>
+        <li><a href="#contact" class="nav-link"><i data-lucide="map-pin" class="lucide-icon"></i> Kontakt i Godziny</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SPA Views Container -->
+  <main class="app-content">
+
+    <!-- ================= HOME VIEW (#home) ================= -->
+    <section id="view-home" class="view-section active-view">
+      <div class="section-container">
+        
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+          <div class="hero-content">
+            <span class="hero-tag">
+              <i data-lucide="shield-check" class="lucide-icon"></i> Tradycja i Jakość w Rzeszotarach
+            </span>
+            <h1 class="hero-title">
+              Hurtownia Narzędzi <span>Ogrodniczo-Budowlanych</span>
+            </h1>
+            <p class="hero-subtitle">
+              Szeroki wybór artykułów metalowych, łańcuchów, osprzętu budowlanego oraz narzędzi ogrodniczych. Dostępność od ręki dla firm budowlanych i klientów indywidualnych.
+            </p>
+            <div class="hero-actions">
+              <a href="#catalog" class="btn-primary">
+                <i data-lucide="shopping-cart" class="lucide-icon"></i> Przeglądaj Katalog
+              </a>
+              <a href="#b2b" class="btn-secondary">
+                <i data-lucide="file-text" class="lucide-icon"></i> Oferta Hurtowa B2B
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Value Proposition Feature Cards -->
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="package-check" class="lucide-icon"></i>
+            </div>
+            <div>
+              <h3 class="feature-title">Towar od ręki</h3>
+              <p class="feature-desc">Duży magazyn stacjonarny w Rzeszotarach 451. Odbiór w 15 minut.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="tags" class="lucide-icon"></i>
+            </div>
+            <div>
+              <h3 class="feature-title">Ceny Hurtowe i Detal</h3>
+              <p class="feature-desc">Przełączaj cenę netto/brutto. Rabaty ilościowe dla wykonawców.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="truck" class="lucide-icon"></i>
+            </div>
+            <div>
+              <h3 class="feature-title">Dostawa w Regionie</h3>
+              <p class="feature-desc">Własny transport Śliwa FH na terenie Świątnik, Skawiny i okolic.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i data-lucide="phone-call" class="lucide-icon"></i>
+            </div>
+            <div>
+              <h3 class="feature-title">Fachowe Doradztwo</h3>
+              <p class="feature-desc">Zadzwoń do hurtowni: 12 270 43 53. Pomóżmy dobrać właściwy sprzęt.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Categories Grid -->
+        <div class="section-header">
+          <div class="section-title-group">
+            <h2>Kategorie Produktów</h2>
+            <p>Wybierz interesujący Cię dział asortymentu</p>
+          </div>
+          <a href="#catalog" class="btn-outline">
+            <span>Wszystkie kategorie</span> <i data-lucide="arrow-right" class="lucide-icon"></i>
+          </a>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-card" onclick="filterCategory('ogrodnicze')">
+            <div class="category-icon-box">
+              <i data-lucide="flower-2" class="lucide-icon"></i>
+            </div>
+            <h3 class="category-name">Narzędzia Ogrodnicze</h3>
+            <span class="category-count">Łopaty, grabie, węże, sekatory</span>
+          </div>
+
+          <div class="category-card" onclick="filterCategory('metalowe')">
+            <div class="category-icon-box">
+              <i data-lucide="link" class="lucide-icon"></i>
+            </div>
+            <h3 class="category-name">Artykuły Metalowe</h3>
+            <span class="category-count">Łańcuchy, kolana, śruby, okucia</span>
+          </div>
+
+          <div class="category-card" onclick="filterCategory('budowlane')">
+            <div class="category-icon-box">
+              <i data-lucide="paint-bucket" class="lucide-icon"></i>
+            </div>
+            <h3 class="category-name">Budowlane & Malarskie</h3>
+            <span class="category-count">Pędzle, wałki, poziomice, kielnie</span>
+          </div>
+
+          <div class="category-card" onclick="filterCategory('reczne')">
+            <div class="category-icon-box">
+              <i data-lucide="hammer" class="lucide-icon"></i>
+            </div>
+            <h3 class="category-name">Narzędzia Ręczne</h3>
+            <span class="category-count">Młotki, klucze CrV, miary, tarcze</span>
+          </div>
+
+          <div class="category-card" onclick="filterCategory('bhp')">
+            <div class="category-icon-box">
+              <i data-lucide="shield" class="lucide-icon"></i>
+            </div>
+            <h3 class="category-name">BHP & Odzież Robocza</h3>
+            <span class="category-count">Rękawice nitrylowe, okulary, akcesoria</span>
+          </div>
+        </div>
+
+        <!-- Bestsellers Section -->
+        <div class="section-header">
+          <div class="section-title-group">
+            <h2>Polecane & Bestsellery</h2>
+            <p>Najczęściej zamawiane artykuły w hurtowni Śliwa FH</p>
+          </div>
+        </div>
+
+        <div id="home-bestsellers-grid" class="products-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- ================= CATALOG VIEW (#catalog) ================= -->
+    <section id="view-catalog" class="view-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <div class="section-title-group">
+            <h2>Katalog Hurtowy i Detaliczny</h2>
+            <p>Przeglądaj pełną ofertę narzędzi i artykułów metalowych</p>
+          </div>
+        </div>
+
+        <div class="catalog-layout">
+          <!-- Filter Sidebar -->
+          <aside class="filter-sidebar">
+            <div class="filter-group">
+              <h4 class="filter-group-title">
+                <span>Kategoria</span>
+                <i data-lucide="filter" class="lucide-icon"></i>
+              </h4>
+              <ul class="category-filter-list">
+                <li class="category-filter-item active" data-cat="all" onclick="filterCategory('all')">
+                  <span>Wszystkie produkty</span>
+                </li>
+                <li class="category-filter-item" data-cat="ogrodnicze" onclick="filterCategory('ogrodnicze')">
+                  <span>Ogrodnicze</span>
+                </li>
+                <li class="category-filter-item" data-cat="metalowe" onclick="filterCategory('metalowe')">
+                  <span>Artykuły Metalowe</span>
+                </li>
+                <li class="category-filter-item" data-cat="budowlane" onclick="filterCategory('budowlane')">
+                  <span>Budowlane & Malarskie</span>
+                </li>
+                <li class="category-filter-item" data-cat="reczne" onclick="filterCategory('reczne')">
+                  <span>Narzędzia Ręczne</span>
+                </li>
+                <li class="category-filter-item" data-cat="bhp" onclick="filterCategory('bhp')">
+                  <span>BHP & Odzież Robocza</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="filter-group">
+              <h4 class="filter-group-title">Dostępność</h4>
+              <label style="display:flex; align-items:center; gap:8px; font-size:0.88rem; cursor:pointer; color:var(--text-muted);">
+                <input type="checkbox" id="stock-only-toggle">
+                <span>Tylko dostępne w Rzeszotarach</span>
+              </label>
+            </div>
+
+            <div class="filter-group" style="border:none;">
+              <h4 class="filter-group-title">Pomoc Hurtowa</h4>
+              <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.5; margin-bottom:12px;">
+                Potrzebujesz niestandardowych ilości łańcuchów lub kształtek?
+              </p>
+              <a href="#contact" class="btn-outline" style="width:100%; font-size:0.82rem;">
+                <i data-lucide="phone" class="lucide-icon"></i> Kontakt z hurtownią
+              </a>
+            </div>
+          </aside>
+
+          <!-- Main Catalog Products Grid -->
+          <main>
+            <div id="catalog-products-grid" class="products-grid"></div>
+          </main>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= DEDICATED SINGLE PRODUCT SUBPAGE VIEW (#product/:id) ================= -->
+    <section id="view-product-single" class="view-section"></section>
+
+    <!-- ================= B2B WHOLESALE VIEW (#b2b) ================= -->
+    <section id="view-b2b" class="view-section">
+      <div class="section-container">
+        
+        <div style="max-width:800px; margin:0 auto; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:40px; box-shadow:var(--shadow-md);">
+          <div style="text-align:center; margin-bottom:32px;">
+            <div style="width:60px; height:60px; background:var(--b2b-blue-light); color:var(--b2b-blue); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px;">
+              <i data-lucide="building-2" style="width:30px; height:30px;"></i>
+            </div>
+            <h2>Zamówienia Hurtowe B2B & Zapytania Ofertowe</h2>
+            <p style="color:var(--text-muted); margin-top:6px;">Dla firm budowlanych, sklepów detalicznych i wykonawców w regionie Małopolski.</p>
+          </div>
+
+          <form onsubmit="submitB2BQuote(event)" style="display:flex; flex-direction:column; gap:20px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Nazwa Firmy *</label>
+                <input type="text" id="b2b-company" required placeholder="np. Bud-Max Sp. z o.o." style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+              </div>
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Numer NIP *</label>
+                <input type="text" id="b2b-nip" required placeholder="np. 6760000000" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Imię i Nazwisko Osoby Kontaktowej</label>
+                <input type="text" placeholder="Jan Kowalski" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+              </div>
+              <div>
+                <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Telefon Kontaktowy *</label>
+                <input type="tel" required placeholder="np. 601 913 899" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+              </div>
+            </div>
+
+            <div>
+              <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Specyfikacja Zamówienia / Wykaz Artykułów *</label>
+              <textarea rows="5" required placeholder="Wpisz potrzebne artykuły, kody SKU lub wielkości zestawów (np. Łańcuch 6mm 150m, Pędzle 50mm 100 szt.)..." style="width:100%; padding:12px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary btn-b2b" style="padding:16px;">
+              <i data-lucide="send" class="lucide-icon"></i> Wyślij Zapytanie o Ofertę Hurtową
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= CONTACT & LOCATION VIEW (#contact) ================= -->
+    <section id="view-contact" class="view-section">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <div class="section-title-group">
+            <h2>Kontakt & Siedziba Hurtowni</h2>
+            <p>Zapraszamy do hurtowni stacjonarnej w Rzeszotarach</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Card -->
+          <div class="contact-info-card">
+            <h3 style="font-size:1.4rem; margin-bottom:24px;">Firma Handlowa "ŚLIWA" Czesław Śliwa</h3>
+            
+            <div class="contact-item-row">
+              <div class="contact-icon"><i data-lucide="map-pin" class="lucide-icon"></i></div>
+              <div>
+                <strong>Adres Siedziby & Magazynu:</strong>
+                <p style="color:var(--text-muted); font-size:1rem; margin-top:2px;">Rzeszotary 451, 32-040 Świątniki Górne</p>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon"><i data-lucide="phone" class="lucide-icon"></i></div>
+              <div>
+                <strong>Numery Telefonu:</strong>
+                <p style="color:var(--text-muted); font-size:0.95rem; margin-top:2px;">Stacjonarny: <strong>12 270 43 53</strong></p>
+                <p style="color:var(--text-muted); font-size:0.95rem;">Komórkowe: <strong>601 913 899</strong> | <strong>605 202 210</strong></p>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon"><i data-lucide="mail" class="lucide-icon"></i></div>
+              <div>
+                <strong>Adres E-mail:</strong>
+                <p style="color:var(--text-muted); font-size:0.95rem; margin-top:2px;">biuro@fhsliwa.com.pl</p>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon"><i data-lucide="file-check-2" class="lucide-icon"></i></div>
+              <div>
+                <strong>Dane Rejestrowe:</strong>
+                <p style="color:var(--text-muted); font-size:0.9rem; margin-top:2px;">REGON: <strong>350026630</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opening Hours & Direct Route Box -->
+          <div class="contact-info-card" style="background:var(--bg-dark-slate); color:var(--text-white);">
+            <h3 style="color:var(--text-white); font-size:1.4rem; margin-bottom:24px; display:flex; align-items:center; gap:10px;">
+              <i data-lucide="clock" class="lucide-icon" style="color:var(--accent-orange);"></i> Godziny Otwarcia
+            </h3>
+
+            <table style="width:100%; border-collapse:collapse; margin-bottom:32px; font-size:0.95rem;">
+              <tbody>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                  <td style="padding:12px 0;">Poniedziałek – Piątek</td>
+                  <td style="padding:12px 0; text-align:right; font-weight:700; color:var(--emerald-green);">07:00 – 17:00</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                  <td style="padding:12px 0;">Sobota</td>
+                  <td style="padding:12px 0; text-align:right; color:var(--text-light);">Zamknięte</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 0;">Niedziela</td>
+                  <td style="padding:12px 0; text-align:right; color:var(--text-light);">Zamknięte</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-md); padding:20px;">
+              <h4 style="color:var(--text-white); font-size:1rem; margin-bottom:8px;">Dojazd i Odbiór Towaru</h4>
+              <p style="color:var(--text-light); font-size:0.88rem; line-height:1.5; margin-bottom:16px;">
+                Hurtownia zlokalizowana jest bezpośrednio w miejscowości Rzeszotary (gm. Świątniki Górne). Wygodny podjazd dla samochodów dostawczych.
+              </p>
+              <a href="https://maps.google.com/?q=Rzeszotary+451" target="_blank" rel="noopener" class="btn-primary" style="width:100%;">
+                <i data-lucide="navigation" class="lucide-icon"></i> Otwórz Nawigację Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Slide-out Cart & Quote Drawer Overlay -->
+  <div id="cart-overlay" class="cart-overlay">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3><i data-lucide="shopping-bag" class="lucide-icon"></i> Twój Koszyk</h3>
+        <button id="close-cart-btn" class="close-drawer-btn"><i data-lucide="x" class="lucide-icon"></i></button>
+      </div>
+
+      <div id="cart-drawer-items" class="drawer-body">
+        <!-- Dynamic Items populated via app.js -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="summary-row">
+          <span>Suma Netto:</span>
+          <strong id="cart-total-netto" class="mono-text">0.00 PLN</strong>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Razem do zapłaty (Brutto):</span>
+          <strong id="cart-total-brutto" class="mono-text" style="color:var(--accent-orange);">0.00 PLN</strong>
+        </div>
+
+        <form onsubmit="submitCartOrder(event)" style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+          <input type="text" id="order-client-name" required placeholder="Imię i nazwisko / Firma" style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.85rem;">
+          <input type="tel" id="order-client-phone" required placeholder="Telefon kontaktowy" style="padding:10px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.85rem;">
+          
+          <button type="submit" class="btn-primary" style="width:100%; padding:14px;">
+            <i data-lucide="check" class="lucide-icon"></i> Zarezerwuj Odbiór w Rzeszotarach
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom:14px;">
+          <div class="logo-icon" style="background:var(--accent-orange); color:white;">
+            <i data-lucide="wrench" class="lucide-icon"></i>
+          </div>
+          <div class="logo-text">
+            <div class="brand-name" style="color:white;">ŚLIWA <span style="color:var(--accent-orange);">FH</span></div>
+            <div class="brand-sub" style="color:var(--text-light);">Hurtownia Narzędzi</div>
+          </div>
+        </div>
+        <p style="font-size:0.88rem; line-height:1.6; color:var(--text-light);">
+          Firma Handlowa "ŚLIWA" Czesław Śliwa. Hurtownia artykułów budowlano-ogrodniczych, łańcuchów i akcesoriów metalowych. Szybka dostawa w regionie i profesjonalna obsługa.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Asortyment</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:filterCategory('ogrodnicze')">Narzędzia Ogrodnicze</a></li>
+          <li><a href="javascript:filterCategory('metalowe')">Artykuły Metalowe & Łańcuchy</a></li>
+          <li><a href="javascript:filterCategory('budowlane')">Budowlane & Malarskie</a></li>
+          <li><a href="javascript:filterCategory('reczne')">Narzędzia Ręczne</a></li>
+          <li><a href="javascript:filterCategory('bhp')">BHP & Odzież Robocza</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Szybkie Linki</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Strona Główna</a></li>
+          <li><a href="#catalog">Katalog Produktów</a></li>
+          <li><a href="#b2b">Zapytanie Hurtowe B2B</a></li>
+          <li><a href="#contact">Dojazd i Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Siedziba Hurtowni</h4>
+        <p style="font-size:0.88rem; color:var(--text-light); line-height:1.6; margin-bottom:10px;">
+          <strong>Rzeszotary 451</strong><br>
+          32-040 Świątniki Górne<br>
+          REGON: 350026630
+        </p>
+        <p style="font-size:0.88rem; color:var(--text-light);">
+          Tel: <strong>12 270 43 53</strong><br>
+          Email: <strong>biuro@fhsliwa.com.pl</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 Śliwa FH. Wszystkie prawa zastrzeżone.</div>
+      <div>Hurtownia Narzędzi Ogrodniczo-Budowlanych w Rzeszotarach</div>
+    </div>
+  </footer>
+
+  <!-- Application JS -->
+  <script src="app.js"></script>
+</body>
+</html>
