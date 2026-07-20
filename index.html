@@ -62,10 +62,10 @@
       <div class="header-actions">
         <!-- B2C / B2B Price Switcher -->
         <div class="price-mode-switch" title="Przełącz wyświetlanie cen Netto / Brutto">
-          <button id="mode-b2c-btn" class="mode-btn active b2c">
+          <button id="mode-b2c-btn" class="mode-btn mode-b2c-btn active b2c">
             <i data-lucide="user" class="lucide-icon"></i> Detal (Brutto)
           </button>
-          <button id="mode-b2b-btn" class="mode-btn b2b">
+          <button id="mode-b2b-btn" class="mode-btn mode-b2b-btn b2b">
             <i data-lucide="building-2" class="lucide-icon"></i> Hurt (Netto)
           </button>
         </div>
@@ -75,6 +75,12 @@
           <i data-lucide="shopping-bag" class="lucide-icon"></i>
           <span>Koszyk</span>
           <span id="cart-count-badge" class="cart-count-badge">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button (1/4 width on mobile) -->
+        <button id="mobile-menu-trigger" class="mobile-menu-btn" aria-label="Otwórz menu nawigacji">
+          <i data-lucide="menu" class="lucide-icon"></i>
+          <span>Menu</span>
         </button>
       </div>
 
@@ -467,6 +473,105 @@
             <i data-lucide="check" class="lucide-icon"></i> Zarezerwuj Odbiór w Rzeszotarach
           </button>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation & Categories Drawer -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+    <div class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo" style="transform: scale(0.9); transform-origin: left center;">
+          <div class="logo-icon">
+            <i data-lucide="wrench" class="lucide-icon"></i>
+          </div>
+          <div class="logo-text">
+            <div class="brand-name">ŚLIWA <span>FH</span></div>
+            <div class="brand-sub">Hurtownia Narzędzi</div>
+          </div>
+        </div>
+        <button id="close-mobile-menu-btn" class="close-drawer-btn" aria-label="Zamknij menu">
+          <i data-lucide="x" class="lucide-icon"></i>
+        </button>
+      </div>
+
+      <div class="mobile-menu-body">
+        <!-- Price Switcher in Mobile Drawer -->
+        <div class="mobile-price-section">
+          <div class="mobile-section-label">Tryb Wyświetlania Cen</div>
+          <div class="price-mode-switch mobile-switch" title="Przełącz wyświetlanie cen Netto / Brutto">
+            <button class="mode-btn mode-b2c-btn active b2c">
+              <i data-lucide="user" class="lucide-icon"></i> Detal (Brutto)
+            </button>
+            <button class="mode-btn mode-b2b-btn b2b">
+              <i data-lucide="building-2" class="lucide-icon"></i> Hurt (Netto)
+            </button>
+          </div>
+        </div>
+
+        <!-- Categories & Main Nav Links -->
+        <div class="mobile-nav-section">
+          <div class="mobile-section-label">Kategorie & Nawigacja</div>
+          <ul class="mobile-nav-links">
+            <li>
+              <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">
+                <i data-lucide="home" class="lucide-icon"></i> Strona Główna
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('all'); closeMobileMenu();">
+                <i data-lucide="grid" class="lucide-icon"></i> Katalog Produktów
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('ogrodnicze'); closeMobileMenu();">
+                <i data-lucide="flower-2" class="lucide-icon"></i> Narzędzia Ogrodnicze
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('metalowe'); closeMobileMenu();">
+                <i data-lucide="link" class="lucide-icon"></i> Artykuły Metalowe & Łańcuchy
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('budowlane'); closeMobileMenu();">
+                <i data-lucide="paint-bucket" class="lucide-icon"></i> Budowlane & Malarskie
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('reczne'); closeMobileMenu();">
+                <i data-lucide="hammer" class="lucide-icon"></i> Narzędzia Ręczne
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" class="mobile-nav-link" onclick="filterCategory('bhp'); closeMobileMenu();">
+                <i data-lucide="shield" class="lucide-icon"></i> BHP & Odzież Robocza
+              </a>
+            </li>
+            <li>
+              <a href="#b2b" class="mobile-nav-link b2b-link" onclick="closeMobileMenu()">
+                <i data-lucide="file-text" class="lucide-icon"></i> Zamówienia Hurtowe B2B
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">
+                <i data-lucide="map-pin" class="lucide-icon"></i> Kontakt i Godziny
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Store Info Badge inside drawer -->
+        <div class="mobile-menu-footer-info">
+          <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <i data-lucide="phone" class="lucide-icon" style="color:var(--emerald-green);"></i> Telefon: <strong>12 270 43 53</strong> | <strong>601 913 899</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <i data-lucide="map-pin" class="lucide-icon" style="color:var(--accent-orange);"></i> Hurtownia: <strong>Rzeszotary 451</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

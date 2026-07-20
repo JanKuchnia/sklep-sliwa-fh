@@ -391,6 +391,142 @@ input, select, textarea {
   justify-content: center;
 }
 
+/* Mobile Menu Trigger Button (Desktop hidden) */
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--bg-surface-elevated);
+  color: var(--bg-dark-slate);
+  border: 1px solid var(--border-color);
+  padding: 9px 16px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  background-color: var(--border-color);
+}
+
+/* Mobile Navigation Drawer Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 85vw;
+  height: 100%;
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.active .mobile-menu-drawer {
+  transform: translateX(0);
+}
+
+.mobile-menu-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-surface-elevated);
+}
+
+.mobile-menu-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-section-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.mobile-price-section .mobile-switch {
+  width: 100%;
+  justify-content: space-around;
+  padding: 4px;
+}
+
+.mobile-price-section .mobile-switch .mode-btn {
+  flex: 1;
+  justify-content: center;
+  padding: 9px 12px;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+.mobile-nav-link:hover, .mobile-nav-link.active {
+  background-color: var(--accent-orange-light);
+  color: var(--accent-orange);
+}
+
+.mobile-nav-link.b2b-link {
+  color: var(--b2b-blue);
+}
+
+.mobile-nav-link.b2b-link:hover {
+  background-color: var(--b2b-blue-light);
+}
+
+.mobile-menu-footer-info {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
 /* Sub-Navigation Bar */
 .sub-nav {
   position: relative;
@@ -1410,9 +1546,44 @@ input, select, textarea {
 
 @media (max-width: 768px) {
   .top-ticker { flex-direction: column; gap: 8px; text-align: center; }
-  .header-container { flex-direction: column; gap: 12px; }
+  .header-container { flex-direction: column; gap: 10px; padding: 12px 16px; }
+  .brand-logo { width: 100%; justify-content: center; }
   .header-search { width: 100%; max-width: none; }
-  .sub-nav-container { overflow-x: auto; }
+  
+  /* Mobile Actions Row: 3/4 Koszyk button (75%) + 1/4 Mobile Hamburger Menu (25%) */
+  .header-actions {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .header-actions .price-mode-switch {
+    display: none; /* Switch is located inside mobile hamburger menu */
+  }
+
+  .cart-trigger-btn {
+    flex: 3;
+    width: 75%;
+    justify-content: center;
+    padding: 11px 14px;
+    font-size: 0.92rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    flex: 1;
+    width: 25%;
+    justify-content: center;
+    padding: 11px 14px;
+    font-size: 0.92rem;
+  }
+
+  /* Sub-nav bar categories are inside mobile hamburger menu */
+  .sub-nav {
+    display: none;
+  }
+
   .hero-banner { padding: 36px 24px; }
   .footer-container { grid-template-columns: 1fr; }
 }

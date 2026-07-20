@@ -397,13 +397,25 @@ function handleRoute() {
 
 // --- EVENT LISTENERS ---
 function initEventListeners() {
-  // Price mode switch (B2C / B2B)
-  const b2cBtn = document.getElementById('mode-b2c-btn');
-  const b2bBtn = document.getElementById('mode-b2b-btn');
+  // Price mode switch (B2C / B2B) - Bind all mode buttons in header & mobile drawer
+  document.querySelectorAll('.mode-b2c-btn').forEach(btn => {
+    btn.addEventListener('click', () => setPriceMode('b2c'));
+  });
+  document.querySelectorAll('.mode-b2b-btn').forEach(btn => {
+    btn.addEventListener('click', () => setPriceMode('b2b'));
+  });
 
-  if (b2cBtn && b2bBtn) {
-    b2cBtn.addEventListener('click', () => setPriceMode('b2c'));
-    b2bBtn.addEventListener('click', () => setPriceMode('b2b'));
+  // Mobile Navigation Drawer Triggers
+  const mobileMenuBtn = document.getElementById('mobile-menu-trigger');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+  if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+  if (mobileMenuOverlay) {
+    mobileMenuOverlay.addEventListener('click', (e) => {
+      if (e.target === mobileMenuOverlay) closeMobileMenu();
+    });
   }
 
   // Cart Drawer Triggers
@@ -478,10 +490,20 @@ function initEventListeners() {
   }
 }
 
+function openMobileMenu() {
+  const overlay = document.getElementById('mobile-menu-overlay');
+  if (overlay) overlay.classList.add('active');
+}
+
+function closeMobileMenu() {
+  const overlay = document.getElementById('mobile-menu-overlay');
+  if (overlay) overlay.classList.remove('active');
+}
+
 function setPriceMode(mode) {
   state.priceMode = mode;
-  document.getElementById('mode-b2c-btn').classList.toggle('active', mode === 'b2c');
-  document.getElementById('mode-b2b-btn').classList.toggle('active', mode === 'b2b');
+  document.querySelectorAll('.mode-b2c-btn').forEach(btn => btn.classList.toggle('active', mode === 'b2c'));
+  document.querySelectorAll('.mode-b2b-btn').forEach(btn => btn.classList.toggle('active', mode === 'b2b'));
 
   // Re-render UI views
   renderCatalog();
