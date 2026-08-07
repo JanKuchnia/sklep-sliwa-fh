@@ -1437,6 +1437,43 @@ input, select, textarea {
   color: var(--accent-orange);
 }
 
+/* Expandable subcategory dropdowns */
+.subcat-toggle {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.category-filter-item-group.expanded .subcat-toggle {
+  transform: rotate(180deg);
+}
+
+.subcat-list {
+  list-style: none;
+  max-height: 0;
+  overflow: hidden;
+  padding-left: 16px;
+}
+
+.category-filter-item-group.expanded .subcat-list {
+  max-height: 300px;
+}
+
+.subcat-list li {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.subcat-list li:hover {
+  background-color: var(--bg-surface-elevated);
+  color: var(--accent-orange);
+}
+
 /* Price Range Inputs */
 .price-inputs-grid {
   display: grid;

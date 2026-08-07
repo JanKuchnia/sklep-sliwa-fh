@@ -1,0 +1,132 @@
+{
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/app.js": {
+    "mtime": 1784556442.8956375,
+    "ast_hash": "73719b5fbaa0663f7a08d6ae20cfd8f0",
+    "semantic_hash": "73719b5fbaa0663f7a08d6ae20cfd8f0"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/.claude/.headroom_wrap_marker.json": {
+    "mtime": 1786131434.3698845,
+    "ast_hash": "be36cb887ddfff97bfcd4552cf9c1974",
+    "semantic_hash": "be36cb887ddfff97bfcd4552cf9c1974"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/.claude/settings.local.json": {
+    "mtime": 1786131434.3718748,
+    "ast_hash": "5274886b847e04f2c7e58243a25a6683",
+    "semantic_hash": "5274886b847e04f2c7e58243a25a6683"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/PRODUCT.md": {
+    "mtime": 1784548868.9540474,
+    "ast_hash": "ab71add1686398cf65236a40528fa970",
+    "semantic_hash": "ab71add1686398cf65236a40528fa970"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/DESIGN.md": {
+    "mtime": 1784548984.2445097,
+    "ast_hash": "d81fda64119b187bf8b945bb7d4d997a",
+    "semantic_hash": "d81fda64119b187bf8b945bb7d4d997a"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/TODO-critique.md": {
+    "mtime": 1784549810.6158018,
+    "ast_hash": "8e373cd78bcd8f91e3248ffbbdc7dd1e",
+    "semantic_hash": "8e373cd78bcd8f91e3248ffbbdc7dd1e"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/index.html": {
+    "mtime": 1784556428.7504492,
+    "ast_hash": "6fd1840c6bb88f52a05ec5129d5e71f4",
+    "semantic_hash": "6fd1840c6bb88f52a05ec5129d5e71f4"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/INFO/brief.md": {
+    "mtime": 1783699392.8550148,
+    "ast_hash": "d1362637579eb6d2372572df4df64ddc",
+    "semantic_hash": "d1362637579eb6d2372572df4df64ddc"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/INFO/research.md": {
+    "mtime": 1783699627.2660315,
+    "ast_hash": "010867250823126acd577bf5926b5947",
+    "semantic_hash": "010867250823126acd577bf5926b5947"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/.impeccable/critique/2026-07-20T12-14-51Z__index-html.md": {
+    "mtime": 1784549691.9713342,
+    "ast_hash": "e7ac1742baa12e6643b99d07182ffd6b",
+    "semantic_hash": "e7ac1742baa12e6643b99d07182ffd6b"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/.serena/project.local.yml": {
+    "mtime": 1786131442.1117995,
+    "ast_hash": "f136e7d47205d9a758913615074760e5",
+    "semantic_hash": "f136e7d47205d9a758913615074760e5"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/.serena/project.yml": {
+    "mtime": 1786131442.3343441,
+    "ast_hash": "689186e3d6421284a30635bd129997cc",
+    "semantic_hash": "689186e3d6421284a30635bd129997cc"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/hero.webp": {
+    "mtime": 1784556471.4745486,
+    "ast_hash": "a48e0606d56a0e365a9dd72f1cc47765",
+    "semantic_hash": "a48e0606d56a0e365a9dd72f1cc47765"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-101-lopata.svg": {
+    "mtime": 1784550022.018635,
+    "ast_hash": "d565631d834683d40089acac62db56ca",
+    "semantic_hash": "d565631d834683d40089acac62db56ca"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-102-grabie.svg": {
+    "mtime": 1784550029.8076656,
+    "ast_hash": "616e177b5652b4cc9512bfbfac317c0e",
+    "semantic_hash": "616e177b5652b4cc9512bfbfac317c0e"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-103-waz.svg": {
+    "mtime": 1784550034.6186845,
+    "ast_hash": "3222788d71bb805784573e7e22129076",
+    "semantic_hash": "3222788d71bb805784573e7e22129076"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-104-sekator.svg": {
+    "mtime": 1784550039.1697025,
+    "ast_hash": "6695770f7db116b7492cb558e3df3f02",
+    "semantic_hash": "6695770f7db116b7492cb558e3df3f02"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-201-lancuch.svg": {
+    "mtime": 1784550044.9637253,
+    "ast_hash": "8bfb6cc7fede911c3c73be593a17851a",
+    "semantic_hash": "8bfb6cc7fede911c3c73be593a17851a"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-202-kolano.svg": {
+    "mtime": 1784550051.5197513,
+    "ast_hash": "bdc659ee320853e4c39b23364db31c59",
+    "semantic_hash": "bdc659ee320853e4c39b23364db31c59"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-203-sruby.svg": {
+    "mtime": 1784550056.4477706,
+    "ast_hash": "dfde25149edea6fca15b23e969269bf1",
+    "semantic_hash": "dfde25149edea6fca15b23e969269bf1"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-301-malarski.svg": {
+    "mtime": 1784550062.0217927,
+    "ast_hash": "ac18b6f82e9957259cce46e6ec621d52",
+    "semantic_hash": "ac18b6f82e9957259cce46e6ec621d52"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-302-pedzel.svg": {
+    "mtime": 1784550066.2938094,
+    "ast_hash": "7de03ee2b973251bdafd8c7e681b9958",
+    "semantic_hash": "7de03ee2b973251bdafd8c7e681b9958"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-303-poziomica.svg": {
+    "mtime": 1784550071.6708307,
+    "ast_hash": "0823b2e9db43ec41ee1f75a13e8233f7",
+    "semantic_hash": "0823b2e9db43ec41ee1f75a13e8233f7"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-401-mlotek.svg": {
+    "mtime": 1784550076.3808491,
+    "ast_hash": "82427c85bf56401c007f47dc2c8804d2",
+    "semantic_hash": "82427c85bf56401c007f47dc2c8804d2"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-402-klucze.svg": {
+    "mtime": 1784550081.377869,
+    "ast_hash": "5043247ffbe112777b130c53e9c28d1c",
+    "semantic_hash": "5043247ffbe112777b130c53e9c28d1c"
+  },
+  "/home/jankuchnia/Desktop/sliwa-fh-sklep-v2/assets/products/p-501-rekawice.svg": {
+    "mtime": 1784550086.1138875,
+    "ast_hash": "5d86e085ab9717cd8cd4e3fe3d67662e",
+    "semantic_hash": "5d86e085ab9717cd8cd4e3fe3d67662e"
+  }
+}

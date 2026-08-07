@@ -135,32 +135,6 @@ const PRODUCTS_DB = [
     }
   },
   {
-    id: "p-201",
-    sku: "SLW-MET-01",
-    name: "Łańcuch Odbierakowy Ogniwowy Ocynkowany DIN 766 6mm (30m)",
-    category: "metalowe",
-    categoryLabel: "Artykuły Metalowe",
-    brand: "Śliwa FH Supply",
-    material: "Stal hartowana",
-    isBestseller: true,
-    isWholesaleDiscount: true,
-    priceNetto: 140.00,
-    priceBrutto: 172.20,
-    wholesaleMinQty: 3,
-    wholesalePriceNetto: 118.00,
-    stockQty: 18,
-    unit: "rolka (30m)",
-    image: "./assets/products/p-201-lancuch.svg",
-    description: "Łańcuch stalowy techniczny z ogniwami krótkimi, ocynkowany galwanicznie. Znajduje szerokie zastosowanie w budownictwie, rolnictwie i gospodarstwie.",
-    specs: {
-      "Norma": "DIN 766",
-      "Grubość drutu d": "6 mm",
-      "Podziałka p": "18.5 mm",
-      "Obciążenie niszczące": "16.0 kN",
-      "Powłoka": "Ocynk galwaniczny silver"
-    }
-  },
-  {
     id: "p-202",
     sku: "SLW-MET-02",
     name: "Kolano Nastawne Dymowe 4-segmentowe Fi 150mm / 2mm Black",
@@ -386,7 +360,7 @@ const PRODUCTS_DB = [
     sku: "SLW-BHP-01",
     name: "Rękawice Robocze Powlekane Nitrylem Dragon (12 par)",
     category: "bhp",
-    categoryLabel: "BHP & Odzież Robocza",
+    categoryLabel: "BHP",
     brand: "Dragon Safety",
     material: "Nitryl",
     isBestseller: true,
@@ -414,12 +388,7 @@ const state = {
   searchQuery: '',
   filters: {
     minPrice: null,
-    maxPrice: null,
-    brands: [],
-    materials: [],
-    inStockOnly: false,
-    b2bDiscountOnly: false,
-    bestsellerOnly: false
+    maxPrice: null
   },
   sortBy: 'default', // 'default', 'price_asc', 'price_desc', 'name_asc', 'stock_desc'
   cart: JSON.parse(localStorage.getItem('sliwa_cart') || '[]'),
@@ -670,31 +639,6 @@ function initEventListeners() {
     });
   }
 
-  // Checkbox toggles in sidebar
-  const stockToggle = document.getElementById('stock-only-toggle');
-  if (stockToggle) {
-    stockToggle.addEventListener('change', (e) => {
-      state.filters.inStockOnly = e.target.checked;
-      renderCatalog();
-    });
-  }
-
-  const b2bToggle = document.getElementById('b2b-discount-toggle');
-  if (b2bToggle) {
-    b2bToggle.addEventListener('change', (e) => {
-      state.filters.b2bDiscountOnly = e.target.checked;
-      renderCatalog();
-    });
-  }
-
-  const bestsellerToggle = document.getElementById('bestseller-only-toggle');
-  if (bestsellerToggle) {
-    bestsellerToggle.addEventListener('change', (e) => {
-      state.filters.bestsellerOnly = e.target.checked;
-      renderCatalog();
-    });
-  }
-
   // Sort Select Dropdown
   const sortSelect = document.getElementById('catalog-sort-select');
   if (sortSelect) {
@@ -766,7 +710,9 @@ function formatPrice(product) {
 function getFilteredProducts() {
   return PRODUCTS_DB.filter(p => {
     // 1. Category Filter
-    if (state.activeCategory !== 'all' && p.category !== state.activeCategory) {
+    if (state.activeCategory === 'promo') {
+      if (!p.isBestseller && !p.isNew && !p.isPromo) return false;
+    } else if (state.activeCategory !== 'all' && p.category !== state.activeCategory) {
       return false;
     }
 
@@ -789,21 +735,6 @@ function getFilteredProducts() {
       return false;
     }
 
-    // 4. Brands Filter
-    if (state.filters.brands.length > 0 && !state.filters.brands.includes(p.brand)) {
-      return false;
-    }
-
-    // 5. Materials Filter
-    if (state.filters.materials.length > 0 && !state.filters.materials.includes(p.material)) {
-      return false;
-    }
-
-    // 6. Availability & Special Deals Toggles
-    if (state.filters.inStockOnly && p.stockQty <= 0) return false;
-    if (state.filters.b2bDiscountOnly && !p.wholesaleMinQty) return false;
-    if (state.filters.bestsellerOnly && !p.isBestseller) return false;
-
     return true;
   }).sort((a, b) => {
     const priceA = state.priceMode === 'b2b' ? a.priceNetto : a.priceBrutto;
@@ -824,28 +755,6 @@ function getFilteredProducts() {
   });
 }
 
-// Brand Filter Toggle
-function toggleBrandFilter(brandName) {
-  const idx = state.filters.brands.indexOf(brandName);
-  if (idx > -1) {
-    state.filters.brands.splice(idx, 1);
-  } else {
-    state.filters.brands.push(brandName);
-  }
-  renderCatalog();
-}
-
-// Material Filter Toggle
-function toggleMaterialFilter(materialName) {
-  const idx = state.filters.materials.indexOf(materialName);
-  if (idx > -1) {
-    state.filters.materials.splice(idx, 1);
-  } else {
-    state.filters.materials.push(materialName);
-  }
-  renderCatalog();
-}
-
 // Price Presets
 function setPricePreset(min, max) {
   state.filters.minPrice = min;
@@ -863,12 +772,7 @@ function resetAllFilters() {
   state.searchQuery = '';
   state.filters = {
     minPrice: null,
-    maxPrice: null,
-    brands: [],
-    materials: [],
-    inStockOnly: false,
-    b2bDiscountOnly: false,
-    bestsellerOnly: false
+    maxPrice: null
   };
   state.sortBy = 'default';
 
@@ -878,14 +782,7 @@ function resetAllFilters() {
 
   document.querySelectorAll('.min-price-input').forEach(el => el.value = '');
   document.querySelectorAll('.max-price-input').forEach(el => el.value = '');
-
-  document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = false);
-  document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = false);
-  document.querySelectorAll('#bestseller-only-toggle, .bestseller-only-toggle').forEach(el => el.checked = false);
   document.querySelectorAll('#catalog-sort-select, .mobile-sort-select').forEach(el => el.value = 'default');
-
-  // Uncheck brand & material checkboxes
-  document.querySelectorAll('.brand-checkbox, .material-checkbox').forEach(cb => cb.checked = false);
 
   updateNavActiveLinks();
   renderCatalog();
@@ -902,22 +799,6 @@ function removeSingleFilter(type, value) {
     renderCatalog();
   } else if (type === 'price') {
     setPricePreset(null, null);
-  } else if (type === 'brand') {
-    toggleBrandFilter(value);
-  } else if (type === 'material') {
-    toggleMaterialFilter(value);
-  } else if (type === 'inStockOnly') {
-    state.filters.inStockOnly = false;
-    document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = false);
-    renderCatalog();
-  } else if (type === 'b2bDiscountOnly') {
-    state.filters.b2bDiscountOnly = false;
-    document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = false);
-    renderCatalog();
-  } else if (type === 'bestsellerOnly') {
-    state.filters.bestsellerOnly = false;
-    document.querySelectorAll('#bestseller-only-toggle, .bestseller-only-toggle').forEach(el => el.checked = false);
-    renderCatalog();
   }
 }
 
@@ -972,7 +853,8 @@ function renderActiveFilterChips() {
       metalowe: 'Artykuły Metalowe',
       budowlane: 'Budowlane & Malarskie',
       reczne: 'Narzędzia Ręczne',
-      bhp: 'BHP & Odzież Robocza'
+      bhp: 'BHP',
+      promo: 'Promocje / Nowości / Polecane'
     };
     const catLabel = catNames[state.activeCategory] || state.activeCategory;
     chips.push(`
@@ -1006,56 +888,6 @@ function renderActiveFilterChips() {
     `);
   }
 
-  // Brands
-  state.filters.brands.forEach(b => {
-    chips.push(`
-      <span class="filter-chip">
-        <span>Marka: <strong>${b}</strong></span>
-        <button onclick="removeSingleFilter('brand', '${b}')">&times;</button>
-      </span>
-    `);
-  });
-
-  // Materials
-  state.filters.materials.forEach(m => {
-    chips.push(`
-      <span class="filter-chip">
-        <span>Materiał: <strong>${m}</strong></span>
-        <button onclick="removeSingleFilter('material', '${m}')">&times;</button>
-      </span>
-    `);
-  });
-
-  // Stock toggle
-  if (state.filters.inStockOnly) {
-    chips.push(`
-      <span class="filter-chip">
-        <span>W magazynie (Rzeszotary)</span>
-        <button onclick="removeSingleFilter('inStockOnly')">&times;</button>
-      </span>
-    `);
-  }
-
-  // B2B discount toggle
-  if (state.filters.b2bDiscountOnly) {
-    chips.push(`
-      <span class="filter-chip">
-        <span>Rabat hurtowy B2B</span>
-        <button onclick="removeSingleFilter('b2bDiscountOnly')">&times;</button>
-      </span>
-    `);
-  }
-
-  // Bestseller toggle
-  if (state.filters.bestsellerOnly) {
-    chips.push(`
-      <span class="filter-chip">
-        <span>Tylko Bestsellery</span>
-        <button onclick="removeSingleFilter('bestsellerOnly')">&times;</button>
-      </span>
-    `);
-  }
-
   if (chips.length > 0) {
     container.style.display = 'flex';
     container.innerHTML = `
@@ -1070,16 +902,6 @@ function renderActiveFilterChips() {
 }
 
 function updateSidebarDynamicCounts() {
-  // Checkbox inputs check state syncing
-  document.querySelectorAll('.brand-checkbox').forEach(cb => {
-    cb.checked = state.filters.brands.includes(cb.value);
-  });
-  document.querySelectorAll('.material-checkbox').forEach(cb => {
-    cb.checked = state.filters.materials.includes(cb.value);
-  });
-  document.querySelectorAll('#stock-only-toggle, .stock-only-toggle').forEach(el => el.checked = state.filters.inStockOnly);
-  document.querySelectorAll('#b2b-discount-toggle, .b2b-discount-toggle').forEach(el => el.checked = state.filters.b2bDiscountOnly);
-  document.querySelectorAll('#bestseller-only-toggle, .bestseller-only-toggle').forEach(el => el.checked = state.filters.bestsellerOnly);
   document.querySelectorAll('#catalog-sort-select, .mobile-sort-select').forEach(el => el.value = state.sortBy);
 
   // Update category filter count badges
@@ -1156,9 +978,14 @@ function renderHomeBestsellers() {
   initLucideIcons();
 }
 
-function filterCategory(categoryKey) {
+function filterCategory(categoryKey, subcatQuery) {
   state.activeCategory = categoryKey;
-  
+  if (subcatQuery !== undefined) {
+    state.searchQuery = subcatQuery; // subcategory drill-down reuses the search filter
+    const searchInput = document.getElementById('main-search-input');
+    if (searchInput) searchInput.value = subcatQuery;
+  }
+
   // Update nav and sidebar active states
   updateNavActiveLinks();
 
