@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# /admin -> backend/admin (internal rewrite, browser URL stays /admin/...
+# so relative links, redirects, and admin.css keep working unchanged).
+# Force a trailing slash first: admin.php's relative redirects (e.g. "login.php")
+# resolve against the CURRENT URL, so "/admin" without a slash would send them
+# to "/login.php" instead of "/admin/login.php".
+RewriteRule ^admin$ admin/ [R=301,L]
+RewriteRule ^admin/?$ backend/admin/index.php [L]
+RewriteRule ^admin/(.+)$ backend/admin/$1 [L]
