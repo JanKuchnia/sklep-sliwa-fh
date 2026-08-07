@@ -1,6 +1,11 @@
 # Plan: Backend + Admin Dashboard for Śliwa FH
 
-Status: **DRAFT — awaiting client approval before any code is written.**
+Status: **APPROVED (client answers 2026-08-07) — stack revised, building now.**
+
+## Client Answers (2026-08-07)
+- Hosting: **Hostinger shared hosting → PHP + MariaDB (phpMyAdmin available).** Stack below revised from Node/SQLite to PHP/MariaDB accordingly.
+- Multiple staff (e.g. 3 people) need the admin panel open concurrently, all adding products — MariaDB handles concurrent writes natively, no special locking needed, just make sure each admin has their own login/session.
+- No payment processing — confirmed out of scope. Flow: customer builds cart → submits → order is (a) stored in the admin panel inbox and (b) emailed to the store. Customer pays in person at pickup.
 
 ## Current state (why this is a from-scratch build, not an add-on)
 The storefront is a static frontend only — no server exists today.
@@ -10,12 +15,13 @@ The storefront is a static frontend only — no server exists today.
 
 So "admin dashboard for each meaningful function" = build a real backend (API + DB + auth) and a dashboard on top of it, then wire the existing storefront forms to actually call it.
 
-## Proposed stack (lazy/minimal, matched to a single small store)
-- **Node.js + Express** — one small service, no framework overkill for this traffic level.
-- **SQLite** (via `better-sqlite3`) — a wholesale/retail store with ~20 products and a handful of daily orders doesn't need Postgres/hosted DB ops. One file, trivial backups, zero infra to manage. Upgrade path noted below if that ever changes.
-- **Session-based admin login** (single/few admin accounts, `express-session` + hashed password) — no need for OAuth/roles/permissions system for a 1-3 person office.
-- **Admin dashboard**: server-rendered pages (EJS or plain HTML+fetch) rather than a separate React app — one deployable, no build step, matches the plain-HTML style of the existing storefront.
-- Storefront (`index.html`/`app.js`) stays static; it just calls the new API instead of faking success.
+## Stack (revised for Hostinger: PHP + MariaDB)
+- **Plain PHP (PDO + prepared statements)** — no framework (Laravel etc. is overkill for this scope and adds a Composer/deploy step Hostinger shared hosting doesn't need).
+- **MariaDB** via phpMyAdmin-manageable schema — tables: `products`, `orders`, `order_items`, `quote_requests`, `admin_users`.
+- **PHP sessions + password_hash()** for admin login — each staff member gets their own account, so 3 people can be logged in and editing concurrently; MariaDB row-level writes handle the concurrency, no extra locking needed.
+- **Admin dashboard**: plain PHP pages (no build step), same plain-HTML style as the storefront.
+- **Storefront (`index.html`/`app.js`)**: `app.js` currently hardcodes `PRODUCTS_DB` as a literal array — this becomes a `fetch('/api/products.php')` call instead, so admin-added products show up live. `submitCartOrder()`/`submitB2BQuote()` POST to `/api/submit-order.php` / `/api/submit-quote.php` instead of just showing a toast.
+- **Order notification**: PHP `mail()` to `biuro@fhsliwa.com.pl` on new order/quote (ponytail: built-in, no library; upgrade to SMTP/PHPMailer later if Hostinger's `mail()` deliverability turns out unreliable — common shared-hosting gotcha, flagging as the ceiling on this shortcut).
 
 ## Meaningful functions → admin screens
 
@@ -50,5 +56,12 @@ So "admin dashboard for each meaningful function" = build a real backend (API + 
 2. Should pickup-order/quote notifications also email or Telegram-ping the office when a new one comes in, or is checking the dashboard enough?
 3. OK with SQLite, or do you already have a database/hosting preference?
 
-## Next step once approved
-Scaffold: Express API + SQLite schema (products, orders, order_items, quotes) + admin login + the 3 dashboard screens above, then wire `app.js` to call the real API.
+## Build status: DONE
+- `backend/schema.sql` + `backend/seed.sql` — 5 tables, seeded with all 15 existing products.
+- `backend/config.php` — DB connection (needs real Hostinger credentials filled in).
+- `backend/create-admin.php` — CLI script to create staff logins.
+- `backend/api/products.php`, `submit-order.php`, `submit-quote.php` — public endpoints the storefront calls.
+- `backend/admin/` — login, dashboard home, product CRUD (+ one-click bestseller/new/promo toggles), order inbox, B2B quote inbox.
+- `app.js` — now fetches the live catalog from `/backend/api/products.php` on load (falls back to the old hardcoded array if the API is unreachable), and the checkout/B2B forms POST to the real endpoints instead of faking success.
+- All PHP files pass `php -l`, `app.js` passes `node -c`.
+- See `backend/README.md` for deploy steps (import schema+seed via phpMyAdmin, fill in `config.php`, create admin logins, upload).

@@ -442,17 +442,17 @@
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
               <div>
                 <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Imię i Nazwisko Osoby Kontaktowej</label>
-                <input type="text" placeholder="Jan Kowalski" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+                <input type="text" id="b2b-contact-name" placeholder="Jan Kowalski" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
               </div>
               <div>
                 <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Telefon Kontaktowy *</label>
-                <input type="tel" required placeholder="np. 601 913 899" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+                <input type="tel" id="b2b-phone" required placeholder="np. 601 913 899" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md);">
               </div>
             </div>
 
             <div>
               <label style="display:block; font-size:0.88rem; font-weight:600; margin-bottom:6px;">Specyfikacja Zamówienia / Wykaz Artykułów *</label>
-              <textarea rows="5" required placeholder="Wpisz potrzebne artykuły, kody SKU lub wielkości zestawów (np. Sekator 200mm 20 szt., Pędzle 50mm 100 szt.)..." style="width:100%; padding:12px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit;"></textarea>
+              <textarea id="b2b-message" rows="5" required placeholder="Wpisz potrzebne artykuły, kody SKU lub wielkości zestawów (np. Sekator 200mm 20 szt., Pędzle 50mm 100 szt.)..." style="width:100%; padding:12px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit;"></textarea>
             </div>
 
             <button type="submit" class="btn-primary btn-b2b" style="padding:16px;">

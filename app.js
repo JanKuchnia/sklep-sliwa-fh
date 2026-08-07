@@ -4,7 +4,10 @@
    ========================================================================== */
 
 // --- PRODUCT CATALOG DATABASE ---
-const PRODUCTS_DB = [
+// Loaded from the backend at startup (see loadProducts() / DOMContentLoaded below).
+// This literal array is the pre-backend fallback, kept so the site still works if
+// the API is unreachable (e.g. running index.html locally without PHP).
+let PRODUCTS_DB = [
   {
     id: "p-101",
     sku: "SLW-OGR-01",
@@ -396,7 +399,8 @@ const state = {
 };
 
 // --- INITIALIZATION ---
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadProducts();
   initLucideIcons();
   initOpeningStatusTicker();
   initRouter();
@@ -404,6 +408,21 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCatalog();
   updateCartUI();
 });
+
+// Fetch the live catalog from the backend; falls back to the bundled PRODUCTS_DB
+// literal above if the API isn't reachable (e.g. opening index.html directly).
+async function loadProducts() {
+  try {
+    const res = await fetch('/backend/api/products.php');
+    if (!res.ok) throw new Error('products.php returned ' + res.status);
+    const data = await res.json();
+    if (Array.isArray(data) && data.length > 0) {
+      PRODUCTS_DB = data;
+    }
+  } catch (err) {
+    console.warn('Nie udało się pobrać katalogu z backendu, używam wbudowanych danych.', err);
+  }
+}
 
 function initLucideIcons() {
   if (window.lucide) {
@@ -1337,7 +1356,7 @@ function closeCartDrawer() {
   if (overlay) overlay.classList.remove('active');
 }
 
-function submitCartOrder(e) {
+async function submitCartOrder(e) {
   if (e) e.preventDefault();
   if (state.cart.length === 0) {
     showToast('Twój koszyk jest pusty!', 'warning');
@@ -1347,21 +1366,60 @@ function submitCartOrder(e) {
   const name = document.getElementById('order-client-name')?.value || 'Klient';
   const phone = document.getElementById('order-client-phone')?.value || '';
 
+  const items = state.cart.map(item => {
+    const product = PRODUCTS_DB.find(p => p.id === item.id);
+    return {
+      id: item.id,
+      name: product ? product.name : item.id,
+      qty: item.qty,
+      priceBrutto: product ? product.priceBrutto : 0
+    };
+  });
+
+  try {
+    const res = await fetch('/backend/api/submit-order.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ customerName: name, customerPhone: phone, items })
+    });
+    if (!res.ok) throw new Error('submit-order.php returned ' + res.status);
+  } catch (err) {
+    console.error('Nie udało się wysłać zamówienia do sklepu.', err);
+    showToast('Nie udało się wysłać rezerwacji. Spróbuj ponownie lub zadzwoń do sklepu.', 'warning');
+    return;
+  }
+
   showToast(`Dziękujemy ${name}! Rezerwacja odbioru zarejestrowana. Skontaktujemy się telefonicznie (${phone}) w celu potwierdzenia.`, 'success');
-  
+
   state.cart = [];
   saveCart();
   updateCartUI();
   closeCartDrawer();
 }
 
-function submitB2BQuote(e) {
+async function submitB2BQuote(e) {
   if (e) e.preventDefault();
   const company = document.getElementById('b2b-company')?.value || 'Firma';
   const nip = document.getElementById('b2b-nip')?.value || '';
+  const contactName = document.getElementById('b2b-contact-name')?.value || '';
+  const phone = document.getElementById('b2b-phone')?.value || '';
+  const message = document.getElementById('b2b-message')?.value || '';
+
+  try {
+    const res = await fetch('/backend/api/submit-quote.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ company, nip, contactName, phone, message })
+    });
+    if (!res.ok) throw new Error('submit-quote.php returned ' + res.status);
+  } catch (err) {
+    console.error('Nie udało się wysłać zapytania B2B.', err);
+    showToast('Nie udało się wysłać zapytania. Spróbuj ponownie lub zadzwoń do sklepu.', 'warning');
+    return;
+  }
 
   showToast(`Zapytanie hurtowe dla firmy ${company} (NIP: ${nip}) zostało wysłane. Odpowiedź prześlemy niezwłocznie.`, 'success');
-  
+
   const form = e.target;
   if (form && form.reset) form.reset();
 }
